@@ -649,6 +649,67 @@ img {
 /* ==========================================================================
    9. ACCESIBILIDAD
    ========================================================================== */
+/* ==========================================================================
+   10. PÁGINA DE EQUIPOS
+   ========================================================================== */
+.team-category {
+    margin-bottom: 3rem;
+}
+
+.team-category h3 {
+    font-size: 2rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.team-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.team-card h5 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color-light);
+}
+
+.team-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.team-card li {
+    padding: 0.25rem 0;
+}
+
+/* ==========================================================================
+   11. PÁGINA DE NOTICIAS (ESTILO INSTAGRAM)
+   ========================================================================== */
+.instagram-style .news-card img {
+    aspect-ratio: 1 / 1; /* Hace la imagen cuadrada */
+    height: auto;
+}
+
+
+/* ==========================================================================
+   9. ACCESIBILIDAD
+   ========================================================================== */
 /* Estilo de foco visible para navegación con teclado */
 a:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent-color);
