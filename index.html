@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Deportivo Balonmano Barbate - Sitio Web Oficial</title>
+
+    <!-- Descripción para SEO -->
+    <meta name="description" content="Página oficial del Club Deportivo Balonmano Barbate. Sigue nuestras noticias, equipos, partidos en directo y compra en nuestra tienda online.">
+
+    <!-- Favicon (reemplazar con tu propio favicon) -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Hoja de Estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Tipografía (Google Fonts - Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CABECERA FIJA (STICKY HEADER) -->
+    <header id="main-header">
+        <div class="header-container">
+            <!-- Logo del Club Balonmano Barbate -->
+            <a href="index.html" class="logo">
+                <img src="http://balonmano.isquad.es/images/afiliacion_clubs/100165/square_6467683739316b316233.jpg" alt="Logo del Club Balonmano Barbate" style="height: 60px; border-radius: 50%;">
+            </a>
+
+            <!-- Menú de Navegación -->
+            <nav id="main-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="club.html">Club</a></li>
+                    <li><a href="equipos.html">Equipos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="galerias.html">Galerías</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botón de Menú Hamburguesa para Móviles -->
+            <button id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN HERO/PORTADA A PANTALLA COMPLETA -->
+        <section id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <!-- Título y subtítulo del Hero -->
+                <h1>Club Deportivo Balonmano Barbate</h1>
+                <p>Tu pasión, nuestro club. Desde 1990.</p>
+                <a href="noticias.html" class="cta-button">Últimas Noticias</a>
+            </div>
+            <!-- Comentario: Reemplaza 'assets/images/hero-background.jpg' con tu imagen de alta calidad. -->
+            <!-- La imagen de fondo se establece en el CSS para un mejor control. -->
+        </section>
+
+        <!-- BARRA SOCIAL VERTICAL FLOTANTE -->
+        <aside class="social-bar">
+            <!-- Reemplazar '#' con los enlaces a tus redes sociales -->
+            <a href="#" target="_blank" aria-label="Facebook">
+                <!-- Icono de Facebook (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
+            </a>
+            <a href="#" target="_blank" aria-label="Instagram">
+                <!-- Icono de Instagram (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3.5c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5 6.5-2.91 6.5-6.5-2.91-6.5-6.5-6.5zm0 2c2.485 0 4.5 2.015 4.5 4.5s-2.015 4.5-4.5 4.5-4.5-2.015-4.5-4.5 2.015-4.5 4.5-4.5zm6.5-2.5c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg>
+            </a>
+            <a href="#" target="_blank" aria-label="X (antes Twitter)">
+                <!-- Icono de X (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.265 8.322-3.321 4.228 3.99 5.45h-3.033l-2.395-3.284-2.796 3.284h-1.025l3.52-4.42-3.83-5.26h3.123l2.22 3.075 2.52-3.075h1.016zm-1.123 1.13-1.92 2.603-1.015-1.353-2.617-3.493h-1.74l3.238 4.88-3.418 4.1h1.74l3.75-4.53 1.11 1.48 2.76 3.65h1.74l-3.8-5.36z"/></svg>
+            </a>
+            <a href="#" target="_blank" aria-label="YouTube">
+                <!-- Icono de YouTube (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16v-8l6 4-6 4z"/></svg>
+            </a>
+        </aside>
+
+        <!-- SECCIÓN DE NOTICIAS / BLOG -->
+        <section id="noticias" class="container">
+            <h2>Últimas Noticias</h2>
+            <div class="news-grid">
+                <!-- Tarjeta de Noticia 1 -->
+                <article class="news-card">
+                    <!-- Comentario: Reemplazar 'assets/images/noticia1.jpg' -->
+                    <img src="https://via.placeholder.com/400x250/0b3a66/ffffff?text=Noticia+1" alt="Imagen de la noticia 1" loading="lazy">
+                    <div class="card-content">
+                        <span class="card-date">10 AGOSTO, 2024</span>
+                        <h3 class="card-title">Victoria clave en el último minuto</h3>
+                        <p class="card-excerpt">El equipo consigue una victoria agónica gracias a un gol en los últimos segundos del partido...</p>
+                        <a href="noticias.html" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta de Noticia 2 -->
+                <article class="news-card">
+                    <!-- Comentario: Reemplazar 'assets/images/noticia2.jpg' -->
+                    <img src="https://via.placeholder.com/400x250/0b3a66/ffffff?text=Noticia+2" alt="Imagen de la noticia 2" loading="lazy">
+                    <div class="card-content">
+                        <span class="card-date">8 AGOSTO, 2024</span>
+                        <h3 class="card-title">Presentación de los nuevos fichajes</h3>
+                        <p class="card-excerpt">Conoce a las nuevas incorporaciones que reforzarán la plantilla para la próxima temporada...</p>
+                        <a href="noticias.html" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta de Noticia 3 -->
+                <article class="news-card">
+                    <!-- Comentario: Reemplazar 'assets/images/noticia3.jpg' -->
+                    <img src="https://via.placeholder.com/400x250/0b3a66/ffffff?text=Noticia+3" alt="Imagen de la noticia 3" loading="lazy">
+                    <div class="card-content">
+                        <span class="card-date">5 AGOSTO, 2024</span>
+                        <h3 class="card-title">Comienza la campaña de abonados</h3>
+                        <p class="card-excerpt">Ya puedes renovar tu abono o unirte a nuestra familia. ¡Te necesitamos para llenar el pabellón!...</p>
+                        <a href="noticias.html" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            <div class="pagination">
+                <a href="noticias.html" class="page-link current">1</a>
+                <a href="noticias.html" class="page-link">2</a>
+                <a href="noticias.html" class="page-link">3</a>
+                <a href="noticias.html" class="page-link">&raquo;</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <div class="footer-section about">
+                <h4>Sobre el Club</h4>
+                <p>Fomentando el balonmano en Barbate. Somos más que un club, somos una familia unida por la pasión por este deporte.</p>
+                <!-- Logos de patrocinadores (reemplazar con los reales) -->
+                <div class="sponsors">
+                    <img src="https://via.placeholder.com/100x40/ffffff/000000?text=Sponsor+1" alt="Logo Patrocinador 1">
+                    <img src="https://via.placeholder.com/100x40/ffffff/000000?text=Sponsor+2" alt="Logo Patrocinador 2">
+                    <img src="https://via.placeholder.com/100x40/ffffff/000000?text=Sponsor+3" alt="Logo Patrocinador 3">
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#tienda">Tienda</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Política de Cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Contacto</h4>
+                <p><i class="icon-map-pin"></i> Pabellón Municipal de Barbate</p>
+                <p><i class="icon-mail"></i> <a href="mailto:balonmanobarbate@gmail.com">balonmanobarbate@gmail.com</a></p>
+                <p><i class="icon-phone"></i> (Teléfono no disponible)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Club Deportivo Balonmano Barbate. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL / BANNER DE COOKIES -->
+    <div id="cookie-banner">
+        <p>Este sitio web utiliza cookies para mejorar tu experiencia. Al continuar, aceptas nuestro uso de cookies.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept-btn">Aceptar</button>
+            <button id="cookie-reject-btn">Rechazar</button>
+            <a href="#" class="cookie-info-link">Más info</a>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript (al final del body para un mejor rendimiento) -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
