@@ -7,9 +7,12 @@
  * Modifica estas variables para cambiar fácilmente la paleta de colores y la tipografía de toda la web.
  */
 :root {
-    --primary-color: #0b3a66; /* Azul oscuro principal */
-    --primary-color-light: #1a5a96; /* Azul más claro para degradados o fondos */
-    --accent-color: #ffc400; /* Amarillo para acentos y botones */
+    /* Paleta de colores para Balonmano Barbate */
+    --primary-color: #0d2c54; /* Azul oscuro (del pantalón/sombra) */
+    --primary-color-light: #5bb4e5; /* Azul celeste (del escudo) */
+    --accent-color: #fecb00; /* Amarillo/Dorado (del timón) */
+    --accent-color-red: #d92027; /* Rojo (de la camiseta) */
+
     --text-color: #333333; /* Color de texto principal */
     --light-text-color: #ffffff; /* Color de texto para fondos oscuros */
     --background-color: #f4f7f9; /* Color de fondo general */
