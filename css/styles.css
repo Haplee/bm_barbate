@@ -798,3 +798,45 @@ a:focus-visible, button:focus-visible {
     font-weight: 600;
     color: var(--text-color);
 }
+
+/* ==========================================================================
+   14. MAIN VIEW TABS (EQUIPOS PAGE)
+   ========================================================================== */
+.main-tabs-container {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    padding: 0 !important; /* Override container padding */
+}
+
+.main-tab-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color-light);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    border-bottom: 4px solid transparent;
+    margin-bottom: -2px; /* Align with the container's border */
+}
+
+.main-tab-button:hover {
+    background-color: rgba(13, 44, 84, 0.05);
+}
+
+.main-tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.view-content {
+    display: none;
+}
+
+.view-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out; /* Reuse existing animation */
+}
