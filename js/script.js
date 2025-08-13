@@ -100,23 +100,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * ------------------------------------------------
-     * 4. LÓGICA DE ACORDEÓN (PÁGINA DE EQUIPOS)
+     * 4. FILTRADO DE EQUIPOS (PÁGINA DE EQUIPOS)
      * ------------------------------------------------
-     * Controla el despliegue de las plantillas de jugadores.
+     * Filtra los equipos por categoría al hacer clic en los botones.
      */
-    const accordions = document.querySelectorAll('.accordion');
+    const filterButtons = document.querySelectorAll('#team-filters .tab-button');
+    const teamEntries = document.querySelectorAll('#teams-container .team-entry');
 
-    accordions.forEach(accordion => {
-        accordion.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
+    if (filterButtons.length > 0 && teamEntries.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Gestionar la clase 'active' en los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+
+                // Mostrar u ocultar equipos
+                teamEntries.forEach(entry => {
+                    if (category === 'all' || entry.getAttribute('data-category') === category) {
+                        entry.classList.remove('hidden');
+                    } else {
+                        entry.classList.add('hidden');
+                    }
+                });
+            });
         });
-    });
-
-
+    }
 });
