@@ -183,11 +183,13 @@ img {
     z-index: 1001;
 }
 
+
 .nav-list .dropdown.is-open .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
+
 
 .nav-list .dropdown.is-open .dropdown-toggle {
     color: var(--accent-color);
