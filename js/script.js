@@ -102,29 +102,39 @@ document.addEventListener('DOMContentLoaded', () => {
      * ------------------------------------------------
      * 4. FILTRADO DE EQUIPOS (PÁGINA DE EQUIPOS)
      * ------------------------------------------------
-     * Filtra los equipos por categoría al hacer clic en los botones.
+     * Encapsula la lógica de filtrado para que sea reutilizable.
      */
-    const filterButtons = document.querySelectorAll('#team-filters .tab-button');
-    const teamEntries = document.querySelectorAll('#teams-container .team-entry');
+    const setupTeamFiltering = (filterContainerId, teamsContainerId) => {
+        const filterButtons = document.querySelectorAll(`#${filterContainerId} .tab-button`);
+        const teamEntries = document.querySelectorAll(`#${teamsContainerId} .team-entry`);
 
-    if (filterButtons.length > 0 && teamEntries.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Gestionar la clase 'active' en los botones
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
+        if (filterButtons.length > 0 && teamEntries.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Gestionar la clase 'active' en los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
 
-                const category = this.getAttribute('data-category');
+                    const category = this.getAttribute('data-category');
 
-                // Mostrar u ocultar equipos
-                teamEntries.forEach(entry => {
-                    if (category === 'all' || entry.getAttribute('data-category') === category) {
-                        entry.classList.remove('hidden');
-                    } else {
-                        entry.classList.add('hidden');
-                    }
+                    // Mostrar u ocultar equipos
+                    teamEntries.forEach(entry => {
+                        const entryCategory = entry.getAttribute('data-category');
+                        if (category === 'all' || entryCategory === category) {
+                            entry.classList.remove('hidden');
+                        } else {
+                            entry.classList.add('hidden');
+                        }
+                    });
                 });
             });
-        });
-    }
+        }
+    };
+
+    // Inicializar filtrado para equipos de pista
+    setupTeamFiltering('team-filters', 'teams-container');
+
+    // Inicializar filtrado para equipos de playa
+    setupTeamFiltering('beach-team-filters', 'beach-teams-container');
+
 });
