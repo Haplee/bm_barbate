@@ -100,36 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * ------------------------------------------------
-     * 4. LÓGICA DE PESTAÑAS (PÁGINA DE EQUIPOS)
+     * 4. LÓGICA DE ACORDEÓN (PÁGINA DE EQUIPOS)
      * ------------------------------------------------
-     * Controla la interfaz de pestañas para mostrar equipos de Pista o Playa.
+     * Controla el despliegue de las plantillas de jugadores.
      */
-    const tabsContainer = document.querySelector('.tabs-container');
+    const accordions = document.querySelectorAll('.accordion');
 
-    if (tabsContainer) {
-        const tabButtons = tabsContainer.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetId = button.dataset.target;
-                const targetContent = document.getElementById(targetId);
-
-                // Ocultar todos los contenidos y quitar clase activa a todos los botones
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                });
-
-                // Mostrar el contenido correcto y marcar el botón como activo
-                if (targetContent) {
-                    targetContent.classList.add('active');
-                }
-                button.classList.add('active');
-            });
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
         });
-    }
+    });
+
 
 });
