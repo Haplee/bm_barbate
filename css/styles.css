@@ -1,0 +1,817 @@
+/* ==========================================================================
+   1. VARIABLES Y ESTILOS GENERALES
+   ========================================================================== */
+
+/*
+ * Comentario para el desarrollador:
+ * Modifica estas variables para cambiar fácilmente la paleta de colores y la tipografía de toda la web.
+ */
+:root {
+    /* Paleta de colores para Balonmano Barbate */
+    --primary-color: #0d2c54; /* Azul oscuro (del pantalón/sombra) */
+    --primary-color-light: #5bb4e5; /* Azul celeste (del escudo) */
+    --accent-color: #fecb00; /* Amarillo/Dorado (del timón) */
+    --accent-color-red: #d92027; /* Rojo (de la camiseta) */
+
+    --text-color: #333333; /* Color de texto principal */
+    --light-text-color: #ffffff; /* Color de texto para fondos oscuros */
+    --background-color: #f4f7f9; /* Color de fondo general */
+    --surface-color: #ffffff; /* Color para las tarjetas y superficies */
+    --border-color: #e0e0e0;
+
+    --font-family: 'Poppins', sans-serif;
+    --header-height: 80px;
+    --header-height-scrolled: 60px;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+/* Reseteo básico y configuración global */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base para unidades REM */
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+a {
+    color: var(--primary-color-light);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+/* ==========================================================================
+   2. CABECERA (HEADER)
+   ========================================================================== */
+
+#main-header {
+    background-color: var(--primary-color);
+    padding: 0 5%;
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: height var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+#main-header.header-scrolled {
+    height: var(--header-height-scrolled);
+    background-color: rgba(11, 58, 102, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo svg {
+    height: 50px;
+    width: auto;
+    transition: transform var(--transition-speed) ease;
+}
+
+#main-header.header-scrolled .logo svg {
+    transform: scale(0.85);
+}
+
+/* Menú de navegación */
+#main-nav {
+    display: none; /* Oculto en móvil */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-list a {
+    color: var(--light-text-color);
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+    width: 100%;
+}
+
+.cart-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-link svg {
+    stroke: var(--light-text-color);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Botón Hamburguesa */
+#hamburger-btn {
+    display: block; /* Visible en móvil */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-text-color);
+    margin: 5px 0;
+    transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
+}
+
+/* Animación de la hamburguesa a 'X' */
+#hamburger-btn.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#hamburger-btn.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+#hamburger-btn.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Estilos del menú móvil (cuando está abierto) */
+#main-nav.is-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(11, 58, 102, 0.98);
+    backdrop-filter: blur(5px);
+}
+
+#main-nav.is-active .nav-list {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#main-nav.is-active .nav-list a {
+    font-size: 1.5rem;
+}
+
+/* Media Query para pantallas más grandes */
+@media (min-width: 992px) {
+    #hamburger-btn {
+        display: none;
+    }
+    #main-nav {
+        display: block;
+    }
+}
+
+
+/* ==========================================================================
+   3. SECCIÓN HERO
+   ========================================================================== */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-text-color);
+    position: relative;
+    overflow: hidden;
+    /* Comentario: Reemplaza la URL de la imagen de fondo */
+    background: url('https://images.unsplash.com/photo-1542281286-9e0de16800e9?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Overlay azul semitransparente */
+    background: linear-gradient(45deg, rgba(11, 58, 102, 0.7), rgba(26, 90, 150, 0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-banner {
+    background-color: rgba(0,0,0,0.4);
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.hero-banner h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--light-text-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.cta-button:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(255, 196, 0, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+    .hero-banner h1 {
+        font-size: 6rem;
+    }
+}
+
+/* ==========================================================================
+   4. BARRA SOCIAL FLOTANTE
+   ========================================================================== */
+.social-bar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--accent-color);
+    border-radius: 10px 0 0 10px;
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.social-bar a {
+    display: block;
+    padding: 0.8rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.social-bar a:hover {
+    transform: scale(1.1);
+    background-color: rgba(255,255,255, 0.2);
+}
+
+.social-bar a svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-color);
+}
+
+/* ==========================================================================
+   5. SECCIÓN DE NOTICIAS
+   ========================================================================== */
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.news-card {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.news-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-date {
+    font-size: 0.8rem;
+    color: var(--primary-color-light);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+
+.card-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    font-weight: 700;
+    color: var(--primary-color-light);
+}
+
+.read-more:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.page-link {
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.page-link.current, .page-link:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-color: var(--primary-color);
+}
+
+@media (min-width: 768px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 992px) {
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================================================
+   6. SECCIÓN DE TIENDA
+   ========================================================================== */
+#tienda {
+    background-color: var(--surface-color);
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color-light);
+    margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+#main-footer {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.8);
+    padding-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: var(--light-text-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+}
+.footer-section a:hover {
+    color: var(--accent-color);
+}
+
+.sponsors {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.sponsors img {
+    height: 30px;
+    width: auto;
+    filter: grayscale(100%) brightness(3); /* Logos en blanco */
+    opacity: 0.7;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.sponsors img:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================================================
+   8. BANNER DE COOKIES
+   ========================================================================== */
+#cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    z-index: 1001;
+    max-width: 350px;
+    display: none; /* Se mostrará con JS */
+    animation: slideInUp 0.5s ease-out;
+}
+
+#cookie-banner.is-visible {
+    display: block;
+}
+
+#cookie-banner p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+#cookie-accept-btn, #cookie-reject-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease;
+}
+
+#cookie-accept-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+#cookie-accept-btn:hover {
+    background-color: var(--primary-color-light);
+}
+
+#cookie-reject-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+#cookie-reject-btn:hover {
+    background-color: #c7c7c7;
+}
+
+.cookie-info-link {
+    font-size: 0.9rem;
+    margin-left: auto;
+    text-decoration: underline;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   10. PÁGINA DE EQUIPOS
+   ========================================================================== */
+.team-category {
+    margin-bottom: 3rem;
+}
+
+.team-category h3 {
+    font-size: 2rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.team-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.team-card h5 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color-light);
+}
+
+.team-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.team-card li {
+    padding: 0.25rem 0;
+}
+
+/* ==========================================================================
+   11. PÁGINA DE NOTICIAS (ESTILO INSTAGRAM)
+   ========================================================================== */
+.instagram-style .news-card img {
+    aspect-ratio: 1 / 1; /* Hace la imagen cuadrada */
+    height: auto;
+}
+
+/* ==========================================================================
+   12. INTERFAZ DE PESTAÑAS (EQUIPOS)
+   ========================================================================== */
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.tab-button:hover {
+    background-color: var(--primary-color-light);
+    color: var(--light-text-color);
+    border-color: var(--primary-color-light);
+}
+
+.tab-button.active {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none; /* Oculto por defecto */
+}
+
+.tab-content.active {
+    display: block; /* Visible cuando está activo */
+}
+
+
+/* ==========================================================================
+   9. ACCESIBILIDAD
+   ========================================================================== */
+/* Estilo de foco visible para navegación con teclado */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   13. DISEÑO DE ACORDEÓN (EQUIPOS)
+   ========================================================================== */
+.accordion {
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: 0.4s;
+    margin-top: 0.5rem;
+}
+
+.accordion:hover {
+    background-color: #f1f1f1;
+}
+
+.accordion.active {
+    background-color: var(--primary-color-light);
+    color: var(--light-text-color);
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+.player-card {
+    text-align: center;
+}
+
+.player-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 0.5rem auto;
+    border: 3px solid var(--border-color);
+}
+
+.player-card h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
