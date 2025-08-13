@@ -38,175 +38,416 @@
     <main>
         <section id="teams-list" class="container">
             <h2>Nuestros Equipos de Pista</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Haz clic en una categoría para desplegar la plantilla de jugadores.</p>
+            <p style="text-align: center; margin-bottom: 2rem;">Filtra por categoría para ver los equipos y sus jugadores.</p>
 
-            <!-- Senior Masculino -->
-            <button class="accordion">Senior Masculino</button>
-            <div class="panel">
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AARON MEDINA BARRERA"><h4>AARON MEDINA BARRERA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ADRIAN CHAMORRO POZO"><h4>ADRIAN CHAMORRO POZO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE"><h4>ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALVARO BLANCO DENIA"><h4>ALVARO BLANCO DENIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CRISTIAN RAMIREZ VELA"><h4>CRISTIAN RAMIREZ VELA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DAVID MUÑOZ RUIZ"><h4>DAVID MUÑOZ RUIZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DIEGO GONZALEZ PICAZO"><h4>DIEGO GONZALEZ PICAZO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO VIDAL MATEO"><h4>FRANCISCO VIDAL MATEO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER MANZORRO CRESPO"><h4>FRANCISCO JAVIER MANZORRO CRESPO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER GUERRERO SUAREZ"><h4>FRANCISCO JAVIER GUERRERO SUAREZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO MANUEL CLA MARTINEZ"><h4>FRANCISCO MANUEL CLA MARTINEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE GOMEZ LOPEZ"><h4>JOSE GOMEZ LOPEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE DAVILA ROBLE"><h4>JOSE DAVILA ROBLE</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN ANTONIO DOMINGUEZ MORENO"><h4>JUAN ANTONIO DOMINGUEZ MORENO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN JOSE CANALES CIFUENTES"><h4>JUAN JOSE CANALES CIFUENTES</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN RAMON MERA DOMINGUEZ"><h4>JUAN RAMON MERA DOMINGUEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO CARO RELINQUE"><h4>PABLO CARO RELINQUE</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PEDRO MORENO CALLADO"><h4>PEDRO MORENO CALLADO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SEBASTIAN CANALES CIFUENTES"><h4>SEBASTIAN CANALES CIFUENTES</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SEBASTIAN CARDOSO TRAUCA"><h4>SEBASTIAN CARDOSO TRAUCA</h4></div>
+            <!-- Contenedor de Filtros -->
+            <div id="team-filters" class="tabs-container">
+                <button class="tab-button active" data-category="all">Todos</button>
+                <button class="tab-button" data-category="senior-masculino">Senior Masculino</button>
+                <button class="tab-button" data-category="juvenil-masculino">Juvenil Masculino</button>
+                <button class="tab-button" data-category="cadete-masculino">Cadete Masculino</button>
+                <button class="tab-button" data-category="cadete-femenino">Cadete Femenino</button>
+                <button class="tab-button" data-category="infantil-masculino">Infantil Masculino</button>
+                <button class="tab-button" data-category="infantil-femenino">Infantil Femenino</button>
+            </div>
+
+            <!-- Contenedor de Equipos -->
+            <div id="teams-container">
+                <!-- Senior Masculino -->
+                <div class="team-entry" data-category="senior-masculino">
+                    <h3 class="team-name">Senior Masculino</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AARON MEDINA BARRERA"><h4>AARON MEDINA BARRERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ADRIAN CHAMORRO POZO"><h4>ADRIAN CHAMORRO POZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE"><h4>ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALVARO BLANCO DENIA"><h4>ALVARO BLANCO DENIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CRISTIAN RAMIREZ VELA"><h4>CRISTIAN RAMIREZ VELA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DAVID MUÑOZ RUIZ"><h4>DAVID MUÑOZ RUIZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DIEGO GONZALEZ PICAZO"><h4>DIEGO GONZALEZ PICAZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO VIDAL MATEO"><h4>FRANCISCO VIDAL MATEO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER MANZORRO CRESPO"><h4>FRANCISCO JAVIER MANZORRO CRESPO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER GUERRERO SUAREZ"><h4>FRANCISCO JAVIER GUERRERO SUAREZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO MANUEL CLA MARTINEZ"><h4>FRANCISCO MANUEL CLA MARTINEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE GOMEZ LOPEZ"><h4>JOSE GOMEZ LOPEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE DAVILA ROBLE"><h4>JOSE DAVILA ROBLE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN ANTONIO DOMINGUEZ MORENO"><h4>JUAN ANTONIO DOMINGUEZ MORENO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN JOSE CANALES CIFUENTES"><h4>JUAN JOSE CANALES CIFUENTES</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN RAMON MERA DOMINGUEZ"><h4>JUAN RAMON MERA DOMINGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO CARO RELINQUE"><h4>PABLO CARO RELINQUE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PEDRO MORENO CALLADO"><h4>PEDRO MORENO CALLADO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SEBASTIAN CANALES CIFUENTES"><h4>SEBASTIAN CANALES CIFUENTES</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SEBASTIAN CARDOSO TRAUCA"><h4>SEBASTIAN CARDOSO TRAUCA</h4></div>
+                    </div>
+                </div>
+
+                <!-- Juvenil Masculino -->
+                <div class="team-entry" data-category="juvenil-masculino">
+                    <h3 class="team-name">Juvenil Masculino</h3>
+                    <p>Información de la plantilla próximamente.</p>
+                </div>
+
+                <!-- Cadete Masculino -->
+                <div class="team-entry" data-category="cadete-masculino">
+                    <h3 class="team-name">Cadete Masculino</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO NUÑEZ CARAMAZANA"><h4>ALEJANDRO NUÑEZ CARAMAZANA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO MEDINA BARRERA"><h4>ALEJANDRO MEDINA BARRERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALI VERSACI DIAZ"><h4>ALI VERSACI DIAZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALONSO OLIVA SANCHEZ"><h4>ALONSO OLIVA SANCHEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALVARO RAMIREZ PAREJA"><h4>ALVARO RAMIREZ PAREJA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ANTONIO CHAMORRO ALBA"><h4>ANTONIO CHAMORRO ALBA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DARIO MEDINA BARRERA"><h4>DARIO MEDINA BARRERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EZEQUIEL GRAÑA SOUZA"><h4>EZEQUIEL GRAÑA SOUZA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ALBERTO GOMEZ DOMINGUEZ"><h4>JOSE ALBERTO GOMEZ DOMINGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ANGEL POZO NARVAEZ"><h4>JOSE ANGEL POZO NARVAEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ANTONIO VIDAL MATEO"><h4>JOSE ANTONIO VIDAL MATEO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE MANUEL PAREJA DAVILA"><h4>JOSE MANUEL PAREJA DAVILA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL ANTONIO RELINQUE CAMACHO"><h4>MANUEL ANTONIO RELINQUE CAMACHO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PEDRO LARA OLIVA"><h4>PEDRO LARA OLIVA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RAMON DEL POZO ROSSI"><h4>RAMON DEL POZO ROSSI</h4></div>
+                    </div>
+                </div>
+
+                <!-- Cadete Femenino -->
+                <div class="team-entry" data-category="cadete-femenino">
+                    <h3 class="team-name">Cadete Femenino</h3>
+                    <h5>Equipo: LA CHANCA BALONMANO BARBATE</h5>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLOTA RIVERA MALIA"><h4>CARLOTA RIVERA MALIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN GIL GILIBERT"><h4>CARMEN GIL GILIBERT</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA GONZALEZ RUIZ-BERDEJO"><h4>DANIELA GONZALEZ RUIZ-BERDEJO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JULIA JUNQUERA JIMENEZ"><h4>JULIA JUNQUERA JIMENEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA TAMAYO MANZORRO"><h4>LUCIA TAMAYO MANZORRO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MAIA GONZALEZ UREBA"><h4>MAIA GONZALEZ UREBA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA RAMOS CHIRINO"><h4>MARIA RAMOS CHIRINO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA VARO CABALLERO"><h4>MARIA VARO CABALLERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIRIAM GONZALEZ TAMAYO"><h4>MIRIAM GONZALEZ TAMAYO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de NORA DIEGO VENEGAS"><h4>NORA DIEGO VENEGAS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAOLA CORRALES VARO"><h4>PAOLA CORRALES VARO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA BELTRAN RIVERA"><h4>PAULA BELTRAN RIVERA</h4></div>
+                    </div>
+                    <h5 style="margin-top: 1.5rem;">Equipo: BALONMANO BARBATE PROMESAS</h5>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRA GONZALEZ MALIA"><h4>ALEJANDRA GONZALEZ MALIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN CARO RELINQUE"><h4>CARMEN CARO RELINQUE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN GONZALEZ PICAZO"><h4>CARMEN GONZALEZ PICAZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN MALIA CRESPO"><h4>CARMEN MALIA CRESPO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CELIA BLANCO DENIA"><h4>CELIA BLANCO DENIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA CORTEJOSA VARO"><h4>DANIELA CORTEJOSA VARO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ELENA AREVALO RIVERA"><h4>ELENA AREVALO RIVERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EVA TIRADO CLA"><h4>EVA TIRADO CLA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GEMA GUZMAN AMBITE"><h4>GEMA GUZMAN AMBITE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA ALBA CORTEJOSA"><h4>LUCIA ALBA CORTEJOSA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA RUBIO POZO"><h4>LUCIA RUBIO POZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PATRICIA MALIA JODAR"><h4>PATRICIA MALIA JODAR</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA MONCAYO RODRIGUEZ"><h4>PAULA MONCAYO RODRIGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSARIO LOPEZ NUÑEZ"><h4>ROSARIO LOPEZ NUÑEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SOFIA BRAVO GRAÑA"><h4>SOFIA BRAVO GRAÑA</h4></div>
+                    </div>
+                </div>
+
+                <!-- Infantil Masculino -->
+                <div class="team-entry" data-category="infantil-masculino">
+                    <h3 class="team-name">Infantil Masculino</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DARIO GILABERT ROMERO"><h4>DARIO GILABERT ROMERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EZEQUIEL LEWERENZ LOSADA"><h4>EZEQUIEL LEWERENZ LOSADA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER SANCHEZ CANTILLO"><h4>FRANCISCO JAVIER SANCHEZ CANTILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JOSE MUÑOZ ALONSO"><h4>FRANCISCO JOSE MUÑOZ ALONSO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GONZALO GUTIERREZ RUIZ"><h4>GONZALO GUTIERREZ RUIZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JAVIER ALCEDO GONZALEZ"><h4>JAVIER ALCEDO GONZALEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE GIL PACHECO"><h4>JOSE GIL PACHECO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE DIEGO BASALLOTE MARTIN"><h4>JOSE DIEGO BASALLOTE MARTIN</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL VALDES CANTILLO"><h4>MANUEL VALDES CANTILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL JESUS UTRERA GARCIA"><h4>MANUEL JESUS UTRERA GARCIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIGUEL QUIROS PAREJA"><h4>MIGUEL QUIROS PAREJA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO RODRIGUEZ MORENO"><h4>PABLO RODRIGUEZ MORENO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO JIMENEZ RAMOS"><h4>PABLO JIMENEZ RAMOS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RAMON MORILLO SANCHEZ"><h4>RAMON MORILLO SANCHEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RODRIGO ROSADO GONZALEZ"><h4>RODRIGO ROSADO GONZALEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TOMAS RAMIREZ JIMENEZ"><h4>TOMAS RAMIREZ JIMENEZ</h4></div>
+                    </div>
+                </div>
+
+                <!-- Infantil Femenino -->
+                <div class="team-entry" data-category="infantil-femenino">
+                    <h3 class="team-name">Infantil Femenino</h3>
+                    <h5>Equipo: LA CHANCA BALONMANO BARBATE</h5>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AFRICA DE LA ROSA ALVARADO"><h4>AFRICA DE LA ROSA ALVARADO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AISHA VARO DIOUCK"><h4>AISHA VARO DIOUCK</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALICIA MUÑOZ LOPEZ"><h4>ALICIA MUÑOZ LOPEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN BERNAL GARCIA"><h4>CARMEN BERNAL GARCIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CLAUDIA TIRADO RIVERA"><h4>CLAUDIA TIRADO RIVERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ELENA VARO BERNAL"><h4>ELENA VARO BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FATIMA CARAVACA BERNAL"><h4>FATIMA CARAVACA BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCESCA CROCI ORTEGA"><h4>FRANCESCA CROCI ORTEGA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LOLA CID OLIVA"><h4>LOLA CID OLIVA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA VARO MUÑOZ"><h4>MARIA VARO MUÑOZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA ANTONIA DE LA CRUZ LIGERO"><h4>MARIA ANTONIA DE LA CRUZ LIGERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA JESUS OLIVA CORRALES"><h4>MARIA JESUS OLIVA CORRALES</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de NATALIA VALDES BRAZA"><h4>NATALIA VALDES BRAZA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSA GOMEZ DOMINGUEZ"><h4>ROSA GOMEZ DOMINGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SARA FERNANDEZ BERNAL"><h4>SARA FERNANDEZ BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TERE SANCHEZ BERNAL"><h4>TERE SANCHEZ BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de VALERIA YOLANDA GARCIA MARQUEZ"><h4>VALERIA YOLANDA GARCIA MARQUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ZAMARA NAVARRO RODRIGUEZ"><h4>ZAMARA NAVARRO RODRIGUEZ</h4></div>
+                    </div>
+                    <h5 style="margin-top: 1.5rem;">Equipo: BALONMANO BARBATE PROMESAS</h5>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AMAIA GIL MARIN"><h4>AMAIA GIL MARIN</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ARANTXA DE GOMAR LARA"><h4>ARANTXA DE GOMAR LARA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLA RODRIGUEZ CASTILLO"><h4>CARLA RODRIGUEZ CASTILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLA GONZALEZ SANTIAGO"><h4>CARLA GONZALEZ SANTIAGO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN BARRIENTOS GALINDO"><h4>CARMEN BARRIENTOS GALINDO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN CORRALES VARO"><h4>CARMEN CORRALES VARO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CRISTINA SANCHEZ BEZA"><h4>CRISTINA SANCHEZ BEZA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de IDAYRA ANGULO AGUILAR"><h4>IDAYRA ANGULO AGUILAR</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JULIA VELAZQUEZ GARCIA"><h4>JULIA VELAZQUEZ GARCIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LARA LOPEZ VILADOMS"><h4>LARA LOPEZ VILADOMS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LAURA VARO BRENES"><h4>LAURA VARO BRENES</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA HEREDIA MUÑOZ"><h4>LUCIA HEREDIA MUÑOZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA MORON TRUJILLO"><h4>LUCIA MORON TRUJILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARGARITA MARQUEZ HORCAJADAS"><h4>MARGARITA MARQUEZ HORCAJADAS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA GUERRERO ALCEDO"><h4>MARIA GUERRERO ALCEDO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA DANIELA MELENDEZ TIRADO"><h4>MARIA DANIELA MELENDEZ TIRADO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIAM GUTIERREZ -RAVE TIRADO"><h4>MARIAM GUTIERREZ -RAVE TIRADO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA PEREZ REVUELTA"><h4>MARTA PEREZ REVUELTA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA MALIA RENDON"><h4>MARTA MALIA RENDON</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA ARAGON BARRIENTOS"><h4>PAULA ARAGON BARRIENTOS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA MORENO MEDINA"><h4>PAULA MORENO MEDINA</h4></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Juvenil Masculino -->
-            <button class="accordion">Juvenil Masculino</button>
-            <div class="panel">
-                <p>Información de la plantilla próximamente.</p>
+        </section>
+
+        <hr style="margin: 4rem 0;">
+
+        <section id="beach-teams-list" class="container">
+            <h2>Nuestros Equipos de Playa</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Filtra por categoría para ver los equipos y sus jugadores.</p>
+
+            <!-- Contenedor de Filtros -->
+            <div id="beach-team-filters" class="tabs-container">
+                <button class="tab-button active" data-category="all">Todos</button>
+                <button class="tab-button" data-category="alevin-femenino">Alevin femenino</button>
+                <button class="tab-button" data-category="infantil-femenino-1">Infantil femenino 1</button>
+                <button class="tab-button" data-category="infantil-femenino-2">infantil femenino 2</button>
+                <button class="tab-button" data-category="infantil-masculino-1">infantil masculino 1</button>
+                <button class="tab-button" data-category="infantil-masculino-2">infantil masculino 2</button>
+                <button class="tab-button" data-category="cadete-femenino-1">Cadete femenino 1</button>
+                <button class="tab-button" data-category="cadete-femenino-2">Cadete femenino 2</button>
+                <button class="tab-button" data-category="cadete-masculino">Cadete masculino</button>
+                <button class="tab-button" data-category="senior-femenino">Senior femenino</button>
+                <button class="tab-button" data-category="senior-masculino-1">senior masculino 1</button>
+                <button class="tab-button" data-category="senior-masculino-2">senior masculino 2</button>
             </div>
 
-            <!-- Cadete Masculino -->
-            <button class="accordion">Cadete Masculino</button>
-            <div class="panel">
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO NUÑEZ CARAMAZANA"><h4>ALEJANDRO NUÑEZ CARAMAZANA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO MEDINA BARRERA"><h4>ALEJANDRO MEDINA BARRERA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALI VERSACI DIAZ"><h4>ALI VERSACI DIAZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALONSO OLIVA SANCHEZ"><h4>ALONSO OLIVA SANCHEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALVARO RAMIREZ PAREJA"><h4>ALVARO RAMIREZ PAREJA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ANTONIO CHAMORRO ALBA"><h4>ANTONIO CHAMORRO ALBA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DARIO MEDINA BARRERA"><h4>DARIO MEDINA BARRERA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EZEQUIEL GRAÑA SOUZA"><h4>EZEQUIEL GRAÑA SOUZA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ALBERTO GOMEZ DOMINGUEZ"><h4>JOSE ALBERTO GOMEZ DOMINGUEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ANGEL POZO NARVAEZ"><h4>JOSE ANGEL POZO NARVAEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ANTONIO VIDAL MATEO"><h4>JOSE ANTONIO VIDAL MATEO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE MANUEL PAREJA DAVILA"><h4>JOSE MANUEL PAREJA DAVILA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL ANTONIO RELINQUE CAMACHO"><h4>MANUEL ANTONIO RELINQUE CAMACHO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PEDRO LARA OLIVA"><h4>PEDRO LARA OLIVA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RAMON DEL POZO ROSSI"><h4>RAMON DEL POZO ROSSI</h4></div>
+            <!-- Contenedor de Equipos -->
+            <div id="beach-teams-container">
+                <!-- Alevin femenino -->
+                <div class="team-entry" data-category="alevin-femenino">
+                    <h3 class="team-name">Alevin femenino</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ADRIANA BARRIENTOS GUERRERO"><h4>ADRIANA BARRIENTOS GUERRERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLA VEGA PACHECO"><h4>CARLA VEGA PACHECO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA RAMOS MORILLO"><h4>DANIELA RAMOS MORILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA DEL CARMEN ROSSI GIL"><h4>DANIELA DEL CARMEN ROSSI GIL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JULIA BERNAL TRUJILLO"><h4>JULIA BERNAL TRUJILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA RECIO BENITEZ"><h4>LUCIA RECIO BENITEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA MONTERO JODA"><h4>MARIA MONTERO JODA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA MALIA FEU"><h4>MARIA MALIA FEU</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MAYRA VARO PACHECO"><h4>MAYRA VARO PACHECO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAOLA JIMENEZ DONCEL MORIANO"><h4>PAOLA JIMENEZ DONCEL MORIANO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SELIN SOFIA SAVAL TRAUTZ"><h4>SELIN SOFIA SAVAL TRAUTZ</h4></div>
+                    </div>
+                </div>
+                <!-- Infantil femenino 1 -->
+                <div class="team-entry" data-category="infantil-femenino-1">
+                    <h3 class="team-name">Infantil femenino 1</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AFRICA DE LA ROSA ALVARADO"><h4>AFRICA DE LA ROSA ALVARADO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AISHA VARO DIOUCK"><h4>AISHA VARO DIOUCK</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALICIA MUÑOZ LOPEZ"><h4>ALICIA MUÑOZ LOPEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ELENA VARO BERNAL"><h4>ELENA VARO BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FATIMA CARAVACA BERNAL"><h4>FATIMA CARAVACA BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCESCA CROCI ORTEGA"><h4>FRANCESCA CROCI ORTEGA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LOLA CID OLIVA"><h4>LOLA CID OLIVA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA VARO MUÑOZ"><h4>MARIA VARO MUÑOZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA ANTONIA DE LA CRUZ LIGERO"><h4>MARIA ANTONIA DE LA CRUZ LIGERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSA GOMEZ DOMINGUEZ"><h4>ROSA GOMEZ DOMINGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SARA FERNANDEZ BERNAL"><h4>SARA FERNANDEZ BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SARA FONSECA PARRA"><h4>SARA FONSECA PARRA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TERE SANCHEZ BERNAL"><h4>TERE SANCHEZ BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de VALERIA YOLANDA GARCIA MARQUEZ"><h4>VALERIA YOLANDA GARCIA MARQUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ZAMARA NAVARRO RODRIGUEZ"><h4>ZAMARA NAVARRO RODRIGUEZ</h4></div>
+                    </div>
+                </div>
+                <!-- infantil femenino 2 -->
+                <div class="team-entry" data-category="infantil-femenino-2">
+                    <h3 class="team-name">infantil femenino 2</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ARANTXA DE GOMAR LARA"><h4>ARANTXA DE GOMAR LARA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLA RODRIGUEZ CASTILLO"><h4>CARLA RODRIGUEZ CASTILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN BARRIENTOS GALINDO"><h4>CARMEN BARRIENTOS GALINDO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN CORRALES VARO"><h4>CARMEN CORRALES VARO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CRISTINA SANCHEZ BEZA"><h4>CRISTINA SANCHEZ BEZA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de IDAYRA ANGULO AGUILAR"><h4>IDAYRA ANGULO AGUILAR</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JULIA VELAZQUEZ GARCIA"><h4>JULIA VELAZQUEZ GARCIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LARA LOPEZ VILADOMS"><h4>LARA LOPEZ VILADOMS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA MORON TRUJILLO"><h4>LUCIA MORON TRUJILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARGARITA MARQUEZ HORCAJADAS"><h4>MARGARITA MARQUEZ HORCAJADAS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA GUERRERO ALCEDO"><h4>MARIA GUERRERO ALCEDO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA MALIA RENDON"><h4>MARTA MALIA RENDON</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA PEREZ REVUELTA"><h4>MARTA PEREZ REVUELTA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA ARAGON BARRIENTOS"><h4>PAULA ARAGON BARRIENTOS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA MORENO MEDINA"><h4>PAULA MORENO MEDINA</h4></div>
+                    </div>
+                </div>
+                <!-- infantil maculino 1 -->
+                <div class="team-entry" data-category="infantil-masculino-1">
+                    <h3 class="team-name">infantil maculino 1</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DARIO GILABERT ROMERO"><h4>DARIO GILABERT ROMERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GONZALO GUTIERREZ RUIZ"><h4>GONZALO GUTIERREZ RUIZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JAVIER ALCEDO GONZALEZ"><h4>JAVIER ALCEDO GONZALEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE DIEGO BASALLOTE MARTIN"><h4>JOSE DIEGO BASALLOTE MARTIN</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL JESUS UTRERA GARCIA"><h4>MANUEL JESUS UTRERA GARCIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIGUEL VILLAR MARTINEZ"><h4>MIGUEL VILLAR MARTINEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIGUEL QUIROS PAREJA"><h4>MIGUEL QUIROS PAREJA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO RODRIGUEZ MORENO"><h4>PABLO RODRIGUEZ MORENO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RAMON MORILLO SANCHEZ"><h4>RAMON MORILLO SANCHEZ</h4></div>
+                    </div>
+                </div>
+                <!-- infantil masculino 2 -->
+                <div class="team-entry" data-category="infantil-masculino-2">
+                    <h3 class="team-name">infantil masculino 2</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ADRIAN TOCINO MARTIN"><h4>ADRIAN TOCINO MARTIN</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALBERTO SANCHEZ ARAGON"><h4>ALBERTO SANCHEZ ARAGON</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO LOPEZ JIMENEZ"><h4>ALEJANDRO LOPEZ JIMENEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EZEQUIEL LEWERENZ LOSADA"><h4>EZEQUIEL LEWERENZ LOSADA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER SANCHEZ CANTILLO"><h4>FRANCISCO JAVIER SANCHEZ CANTILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JOSE MUÑOZ ALONSO"><h4>FRANCISCO JOSE MUÑOZ ALONSO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE GIL PACHECO"><h4>JOSE GIL PACHECO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL VALDES CANTILLO"><h4>MANUEL VALDES CANTILLO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RODRIGO ROSADO GONZALEZ"><h4>RODRIGO ROSADO GONZALEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TOMAS RAMIREZ JIMENEZ"><h4>TOMAS RAMIREZ JIMENEZ</h4></div>
+                    </div>
+                </div>
+                <!-- Cadete femenino 1 -->
+                <div class="team-entry" data-category="cadete-femenino-1">
+                    <h3 class="team-name">Cadete femenino 1</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRA GONZALEZ MALIA"><h4>ALEJANDRA GONZALEZ MALIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN GONZALEZ PICAZO"><h4>CARMEN GONZALEZ PICAZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN MALIA CRESPO"><h4>CARMEN MALIA CRESPO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN CARO RELINQUE"><h4>CARMEN CARO RELINQUE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CELIA BLANCO DENIA"><h4>CELIA BLANCO DENIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA CORTEJOSA VARO"><h4>DANIELA CORTEJOSA VARO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ELENA AREVALO RIVERA"><h4>ELENA AREVALO RIVERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EVA TIRADO CLA"><h4>EVA TIRADO CLA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GEMA GUZMAN AMBITE"><h4>GEMA GUZMAN AMBITE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA RUBIO POZO"><h4>LUCIA RUBIO POZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA ALBA CORTEJOSA"><h4>LUCIA ALBA CORTEJOSA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PATRICIA MALIA JODAR"><h4>PATRICIA MALIA JODAR</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA MONCAYO RODRIGUEZ"><h4>PAULA MONCAYO RODRIGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSARIO LOPEZ NUÑEZ"><h4>ROSARIO LOPEZ NUÑEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SOFIA BRAVO GRAÑA"><h4>SOFIA BRAVO GRAÑA</h4></div>
+                    </div>
+                </div>
+                <!-- Cadete femenino 2 -->
+                <div class="team-entry" data-category="cadete-femenino-2">
+                    <h3 class="team-name">Cadete femenino 2</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN GIL GILIBERT"><h4>CARMEN GIL GILIBERT</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CLAUDIA CUENCA SANCHEZ DE LA CAMPA"><h4>CLAUDIA CUENCA SANCHEZ DE LA CAMPA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA TAMAYO MANZORRO"><h4>LUCIA TAMAYO MANZORRO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA RAMOS CHIRINO"><h4>MARIA RAMOS CHIRINO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA VARO CABALLERO"><h4>MARIA VARO CABALLERO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIRIAM GONZALEZ TAMAYO"><h4>MIRIAM GONZALEZ TAMAYO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de NORA DIEGO VENEGAS"><h4>NORA DIEGO VENEGAS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de NORA LABANDON BERNAL"><h4>NORA LABANDON BERNAL</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAOLA CORRALES VARO"><h4>PAOLA CORRALES VARO</h4></div>
+                    </div>
+                </div>
+                <!-- Cadete masculino -->
+                <div class="team-entry" data-category="cadete-masculino">
+                    <h3 class="team-name">Cadete masculino</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO MEDINA BARRERA"><h4>ALEJANDRO MEDINA BARRERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO NUÑEZ CARAMAZANA"><h4>ALEJANDRO NUÑEZ CARAMAZANA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALI VERSACI DIAZ"><h4>ALI VERSACI DIAZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALONSO OLIVA SANCHEZ"><h4>ALONSO OLIVA SANCHEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALVARO RAMIREZ PAREJA"><h4>ALVARO RAMIREZ PAREJA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ANTONIO CHAMORRO ALBA"><h4>ANTONIO CHAMORRO ALBA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ANTONIO VILLAR MARTINEZ"><h4>ANTONIO VILLAR MARTINEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DARIO MEDINA BARRERA"><h4>DARIO MEDINA BARRERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EZEQUIEL GRAÑA SOUZA"><h4>EZEQUIEL GRAÑA SOUZA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ALBERTO GOMEZ DOMINGUEZ"><h4>JOSE ALBERTO GOMEZ DOMINGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE ANGEL POZO NARVAEZ"><h4>JOSE ANGEL POZO NARVAEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE MANUEL PAREJA DAVILA"><h4>JOSE MANUEL PAREJA DAVILA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL ANTONIO RELINQUE CAMACHO"><h4>MANUEL ANTONIO RELINQUE CAMACHO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PEDRO LARA OLIVA"><h4>PEDRO LARA OLIVA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RAMON DEL POZO ROSSI"><h4>RAMON DEL POZO ROSSI</h4></div>
+                    </div>
+                </div>
+                <!-- Senior femenino -->
+                <div class="team-entry" data-category="senior-femenino">
+                    <h3 class="team-name">Senior femenino</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ANA CHICA MARTIN"><h4>ANA CHICA MARTIN</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN RAMOS CHIRINO"><h4>CARMEN RAMOS CHIRINO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JACQUELINE YAZMIN FONSECA PARRA"><h4>JACQUELINE YAZMIN FONSECA PARRA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCI RAMIREZ JIMENEZ"><h4>LUCI RAMIREZ JIMENEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MACARENA LOZANO TOVAR"><h4>MACARENA LOZANO TOVAR</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA CRESPO GALLARDO"><h4>MARIA CRESPO GALLARDO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA LUZ BERNAL OLIVA"><h4>MARIA LUZ BERNAL OLIVA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA BENITEZ OLIVA"><h4>MARTA BENITEZ OLIVA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSARIO CABELLO ESTUDILLO"><h4>ROSARIO CABELLO ESTUDILLO</h4></div>
+                    </div>
+                </div>
+                <!-- senior masculino 1 -->
+                <div class="team-entry" data-category="senior-masculino-1">
+                    <h3 class="team-name">senior masculino 1</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE"><h4>ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DAVID GARRIDO LOPEZ"><h4>DAVID GARRIDO LOPEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DAVID JIMENEZ RODRIGUEZ"><h4>DAVID JIMENEZ RODRIGUEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DIEGO RELINQUE LEMOS"><h4>DIEGO RELINQUE LEMOS</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DIEGO GONZALEZ PICAZO"><h4>DIEGO GONZALEZ PICAZO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER MANZORRO CRESPO"><h4>FRANCISCO JAVIER MANZORRO CRESPO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JAVIER SANCHEZ BARON"><h4>JAVIER SANCHEZ BARON</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE GOMEZ LOPEZ"><h4>JOSE GOMEZ LOPEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTIN PACHECO CAZORLA"><h4>MARTIN PACHECO CAZORLA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de OSCAR RUIZ GARCIA"><h4>OSCAR RUIZ GARCIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO VALLEJO HERNANDEZ"><h4>PABLO VALLEJO HERNANDEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SEBASTIAN CARDOSO TRAUCA"><h4>SEBASTIAN CARDOSO TRAUCA</h4></div>
+                    </div>
+                </div>
+                <!-- senior masculino 2 -->
+                <div class="team-entry" data-category="senior-masculino-2">
+                    <h3 class="team-name">senior masculino 2</h3>
+                    <div class="player-grid">
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AARON MEDINA BARRERA"><h4>AARON MEDINA BARRERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ADRIAN GUZMAN AMBITE"><h4>ADRIAN GUZMAN AMBITE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRO GUERRERO VARO"><h4>ALEJANDRO GUERRERO VARO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de BRIAN HERNANDEZ MALIA"><h4>BRIAN HERNANDEZ MALIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO VIDAL MATEO"><h4>FRANCISCO VIDAL MATEO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER GUERRERO SUAREZ"><h4>FRANCISCO JAVIER GUERRERO SUAREZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO MANUEL CLA MARTINEZ"><h4>FRANCISCO MANUEL CLA MARTINEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GONZALO VERDUGO MARTINEZ"><h4>GONZALO VERDUGO MARTINEZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JESUS CABELLO MALIA"><h4>JESUS CABELLO MALIA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JUAN JOSE CANALES CIFUENTES"><h4>JUAN JOSE CANALES CIFUENTES</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIGUEL MARISCAL PEREZ"><h4>MIGUEL MARISCAL PEREZ</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de OSCAR PEREZ SEQUERA"><h4>OSCAR PEREZ SEQUERA</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RICARDO CRESPO GALLARDO"><h4>RICARDO CRESPO GALLARDO</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SAMUEL VARO AMBITE"><h4>SAMUEL VARO AMBITE</h4></div>
+                        <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TOMAS JESUS RAMIREZ TIRADO"><h4>TOMAS JESUS RAMIREZ TIRADO</h4></div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Cadete Femenino -->
-            <button class="accordion">Cadete Femenino</button>
-            <div class="panel">
-                <h5>Equipo: LA CHANCA BALONMANO BARBATE</h5>
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLOTA RIVERA MALIA"><h4>CARLOTA RIVERA MALIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN GIL GILIBERT"><h4>CARMEN GIL GILIBERT</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA GONZALEZ RUIZ-BERDEJO"><h4>DANIELA GONZALEZ RUIZ-BERDEJO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JULIA JUNQUERA JIMENEZ"><h4>JULIA JUNQUERA JIMENEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA TAMAYO MANZORRO"><h4>LUCIA TAMAYO MANZORRO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MAIA GONZALEZ UREBA"><h4>MAIA GONZALEZ UREBA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA RAMOS CHIRINO"><h4>MARIA RAMOS CHIRINO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA VARO CABALLERO"><h4>MARIA VARO CABALLERO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIRIAM GONZALEZ TAMAYO"><h4>MIRIAM GONZALEZ TAMAYO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de NORA DIEGO VENEGAS"><h4>NORA DIEGO VENEGAS</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAOLA CORRALES VARO"><h4>PAOLA CORRALES VARO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA BELTRAN RIVERA"><h4>PAULA BELTRAN RIVERA</h4></div>
-                </div>
-                <h5 style="margin-top: 1.5rem;">Equipo: BALONMANO BARBATE PROMESAS</h5>
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALEJANDRA GONZALEZ MALIA"><h4>ALEJANDRA GONZALEZ MALIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN CARO RELINQUE"><h4>CARMEN CARO RELINQUE</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN GONZALEZ PICAZO"><h4>CARMEN GONZALEZ PICAZO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN MALIA CRESPO"><h4>CARMEN MALIA CRESPO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CELIA BLANCO DENIA"><h4>CELIA BLANCO DENIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DANIELA CORTEJOSA VARO"><h4>DANIELA CORTEJOSA VARO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ELENA AREVALO RIVERA"><h4>ELENA AREVALO RIVERA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EVA TIRADO CLA"><h4>EVA TIRADO CLA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GEMA GUZMAN AMBITE"><h4>GEMA GUZMAN AMBITE</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA ALBA CORTEJOSA"><h4>LUCIA ALBA CORTEJOSA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA RUBIO POZO"><h4>LUCIA RUBIO POZO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PATRICIA MALIA JODAR"><h4>PATRICIA MALIA JODAR</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA MONCAYO RODRIGUEZ"><h4>PAULA MONCAYO RODRIGUEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSARIO LOPEZ NUÑEZ"><h4>ROSARIO LOPEZ NUÑEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SOFIA BRAVO GRAÑA"><h4>SOFIA BRAVO GRAÑA</h4></div>
-                </div>
-            </div>
-
-            <!-- Infantil Masculino -->
-            <button class="accordion">Infantil Masculino</button>
-            <div class="panel">
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de DARIO GILABERT ROMERO"><h4>DARIO GILABERT ROMERO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de EZEQUIEL LEWERENZ LOSADA"><h4>EZEQUIEL LEWERENZ LOSADA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JAVIER SANCHEZ CANTILLO"><h4>FRANCISCO JAVIER SANCHEZ CANTILLO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCISCO JOSE MUÑOZ ALONSO"><h4>FRANCISCO JOSE MUÑOZ ALONSO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de GONZALO GUTIERREZ RUIZ"><h4>GONZALO GUTIERREZ RUIZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JAVIER ALCEDO GONZALEZ"><h4>JAVIER ALCEDO GONZALEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE GIL PACHECO"><h4>JOSE GIL PACHECO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JOSE DIEGO BASALLOTE MARTIN"><h4>JOSE DIEGO BASALLOTE MARTIN</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL VALDES CANTILLO"><h4>MANUEL VALDES CANTILLO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MANUEL JESUS UTRERA GARCIA"><h4>MANUEL JESUS UTRERA GARCIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MIGUEL QUIROS PAREJA"><h4>MIGUEL QUIROS PAREJA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO RODRIGUEZ MORENO"><h4>PABLO RODRIGUEZ MORENO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PABLO JIMENEZ RAMOS"><h4>PABLO JIMENEZ RAMOS</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RAMON MORILLO SANCHEZ"><h4>RAMON MORILLO SANCHEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de RODRIGO ROSADO GONZALEZ"><h4>RODRIGO ROSADO GONZALEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TOMAS RAMIREZ JIMENEZ"><h4>TOMAS RAMIREZ JIMENEZ</h4></div>
-                </div>
-            </div>
-
-            <!-- Infantil Femenino -->
-            <button class="accordion">Infantil Femenino</button>
-            <div class="panel">
-                <h5>Equipo: LA CHANCA BALONMANO BARBATE</h5>
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AFRICA DE LA ROSA ALVARADO"><h4>AFRICA DE LA ROSA ALVARADO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AISHA VARO DIOUCK"><h4>AISHA VARO DIOUCK</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ALICIA MUÑOZ LOPEZ"><h4>ALICIA MUÑOZ LOPEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN BERNAL GARCIA"><h4>CARMEN BERNAL GARCIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CLAUDIA TIRADO RIVERA"><h4>CLAUDIA TIRADO RIVERA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ELENA VARO BERNAL"><h4>ELENA VARO BERNAL</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FATIMA CARAVACA BERNAL"><h4>FATIMA CARAVACA BERNAL</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de FRANCESCA CROCI ORTEGA"><h4>FRANCESCA CROCI ORTEGA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LOLA CID OLIVA"><h4>LOLA CID OLIVA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA VARO MUÑOZ"><h4>MARIA VARO MUÑOZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA ANTONIA DE LA CRUZ LIGERO"><h4>MARIA ANTONIA DE LA CRUZ LIGERO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA JESUS OLIVA CORRALES"><h4>MARIA JESUS OLIVA CORRALES</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de NATALIA VALDES BRAZA"><h4>NATALIA VALDES BRAZA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ROSA GOMEZ DOMINGUEZ"><h4>ROSA GOMEZ DOMINGUEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de SARA FERNANDEZ BERNAL"><h4>SARA FERNANDEZ BERNAL</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de TERE SANCHEZ BERNAL"><h4>TERE SANCHEZ BERNAL</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de VALERIA YOLANDA GARCIA MARQUEZ"><h4>VALERIA YOLANDA GARCIA MARQUEZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ZAMARA NAVARRO RODRIGUEZ"><h4>ZAMARA NAVARRO RODRIGUEZ</h4></div>
-                </div>
-                <h5 style="margin-top: 1.5rem;">Equipo: BALONMANO BARBATE PROMESAS</h5>
-                <div class="player-grid">
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de AMAIA GIL MARIN"><h4>AMAIA GIL MARIN</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de ARANTXA DE GOMAR LARA"><h4>ARANTXA DE GOMAR LARA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLA RODRIGUEZ CASTILLO"><h4>CARLA RODRIGUEZ CASTILLO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARLA GONZALEZ SANTIAGO"><h4>CARLA GONZALEZ SANTIAGO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN BARRIENTOS GALINDO"><h4>CARMEN BARRIENTOS GALINDO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CARMEN CORRALES VARO"><h4>CARMEN CORRALES VARO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de CRISTINA SANCHEZ BEZA"><h4>CRISTINA SANCHEZ BEZA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de IDAYRA ANGULO AGUILAR"><h4>IDAYRA ANGULO AGUILAR</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de JULIA VELAZQUEZ GARCIA"><h4>JULIA VELAZQUEZ GARCIA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LARA LOPEZ VILADOMS"><h4>LARA LOPEZ VILADOMS</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LAURA VARO BRENES"><h4>LAURA VARO BRENES</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA HEREDIA MUÑOZ"><h4>LUCIA HEREDIA MUÑOZ</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de LUCIA MORON TRUJILLO"><h4>LUCIA MORON TRUJILLO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARGARITA MARQUEZ HORCAJADAS"><h4>MARGARITA MARQUEZ HORCAJADAS</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA GUERRERO ALCEDO"><h4>MARIA GUERRERO ALCEDO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIA DANIELA MELENDEZ TIRADO"><h4>MARIA DANIELA MELENDEZ TIRADO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARIAM GUTIERREZ -RAVE TIRADO"><h4>MARIAM GUTIERREZ -RAVE TIRADO</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA PEREZ REVUELTA"><h4>MARTA PEREZ REVUELTA</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de MARTA MALIA RENDON"><h4>MARTA MALIA RENDON</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA ARAGON BARRIENTOS"><h4>PAULA ARAGON BARRIENTOS</h4></div>
-                    <div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de PAULA MORENO MEDINA"><h4>PAULA MORENO MEDINA</h4></div>
-                </div>
-
-            </div>
-
         </section>
     </main>
 
