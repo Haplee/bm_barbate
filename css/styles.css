@@ -183,10 +183,16 @@ img {
     z-index: 1001;
 }
 
-.nav-list .dropdown:hover .dropdown-menu {
+
+.nav-list .dropdown.is-open .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+
+.nav-list .dropdown.is-open .dropdown-toggle {
+    color: var(--accent-color);
 }
 
 .nav-list .dropdown .dropdown-menu li {
@@ -430,14 +436,19 @@ img {
 }
 
 .news-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .news-card img {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.news-card:hover img {
+    transform: scale(1.05);
 }
 
 .card-content {
@@ -836,6 +847,14 @@ a:focus-visible, button:focus-visible {
 
 .player-card {
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.player-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .player-card img {
@@ -911,7 +930,14 @@ a:focus-visible, button:focus-visible {
     box-shadow: var(--box-shadow);
     text-align: center;
     overflow: hidden; /* To keep the hover info contained */
-    transition: transform var(--transition-speed) ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.staff-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .staff-card:hover {
@@ -970,4 +996,42 @@ a:focus-visible, button:focus-visible {
 
 .staff-hover-info li {
     margin-bottom: 0.25rem;
+}
+
+/* ==========================================================================
+   16. SCROLL TO TOP BUTTON
+   ========================================================================== */
+#scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--transition-speed) ease;
+}
+
+#scroll-to-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scroll-to-top-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
 }

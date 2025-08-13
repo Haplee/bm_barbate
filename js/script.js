@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar filtrado para equipos de playa
     setupTeamFiltering('beach-team-filters', 'beach-teams-container');
 
-
     /**
      * ------------------------------------------------
      * 5. GESTIÓN DE VISTAS (PÁGINA DE EQUIPOS)
@@ -165,5 +164,89 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si estamos en la página de equipos, gestionar la vista
     if (document.getElementById('pista-view') || document.getElementById('playa-view')) {
         handleTeamView();
+    }
+
+    /**
+     * ------------------------------------------------
+     * 6. DROPDOWN DEL MENÚ DE NAVEGACIÓN
+     * ------------------------------------------------
+     * Controla el menú desplegable de 'Equipos' para que se abra al hacer clic.
+     */
+    const dropdown = document.querySelector('.nav-list .dropdown');
+    if (dropdown) {
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+
+        dropdownToggle.addEventListener('click', (event) => {
+            // No prevenir la navegación en móvil, solo en escritorio
+            if (window.innerWidth > 992) {
+                event.preventDefault();
+            }
+            dropdown.classList.toggle('is-open');
+        });
+
+        // Cerrar el dropdown si se hace clic fuera de él
+        window.addEventListener('click', (event) => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('is-open');
+            }
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 7. BOTÓN DE SCROLL-TO-TOP
+     * ------------------------------------------------
+     * Muestra un botón para volver al inicio de la página al hacer scroll.
+     */
+    const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollToTopBtn.classList.add('is-visible');
+            } else {
+                scrollToTopBtn.classList.remove('is-visible');
+            }
+        }, { passive: true });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 8. STAGGERED GRID ANIMATION
+     * ------------------------------------------------
+     * Anima la aparición de los elementos en una parrilla cuando entran en el viewport.
+     */
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const gridItems = entry.target.querySelectorAll('.player-card, .staff-card');
+                gridItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('is-visible');
+                    }, index * 75); // 75ms de retraso entre cada elemento
+                });
+                observer.unobserve(entry.target); // Animar solo una vez
+            }
+        });
+    }, observerOptions);
+
+    const gridsToAnimate = document.querySelectorAll('.player-grid, .staff-grid');
+    if (gridsToAnimate.length > 0) {
+        gridsToAnimate.forEach(grid => {
+            observer.observe(grid);
+        });
     }
 });
