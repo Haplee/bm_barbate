@@ -137,4 +137,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar filtrado para equipos de playa
     setupTeamFiltering('beach-team-filters', 'beach-teams-container');
 
+    /**
+     * ------------------------------------------------
+     * 5. LÓGICA DE PESTAÑAS PRINCIPALES (PÁGINA DE EQUIPOS)
+     * ------------------------------------------------
+     * Controla el cambio entre las vistas de 'Pista' y 'Playa'.
+     */
+    const mainTabButtons = document.querySelectorAll('.main-tab-button');
+    const viewContents = document.querySelectorAll('.view-content');
+
+    if (mainTabButtons.length > 0 && viewContents.length > 0) {
+        mainTabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Gestionar clases 'active' en los botones
+                mainTabButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                const view = this.getAttribute('data-view');
+
+                // Mostrar/ocultar contenido de la vista
+                viewContents.forEach(content => {
+                    if (content.id === view + '-view') {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
 });
