@@ -137,33 +137,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar filtrado para equipos de playa
     setupTeamFiltering('beach-team-filters', 'beach-teams-container');
 
+
     /**
      * ------------------------------------------------
-     * 5. LÓGICA DE PESTAÑAS PRINCIPALES (PÁGINA DE EQUIPOS)
+     * 5. GESTIÓN DE VISTAS (PÁGINA DE EQUIPOS)
      * ------------------------------------------------
-     * Controla el cambio entre las vistas de 'Pista' y 'Playa'.
+     * Muestra la vista correcta ('Pista' or 'Playa') basado en el parámetro URL.
      */
-    const mainTabButtons = document.querySelectorAll('.main-tab-button');
-    const viewContents = document.querySelectorAll('.view-content');
+    const handleTeamView = () => {
+        const params = new URLSearchParams(window.location.search);
+        const view = params.get('view') || 'pista'; // Default to 'pista'
 
-    if (mainTabButtons.length > 0 && viewContents.length > 0) {
-        mainTabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Gestionar clases 'active' en los botones
-                mainTabButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
+        const pistaView = document.getElementById('pista-view');
+        const playaView = document.getElementById('playa-view');
 
-                const view = this.getAttribute('data-view');
+        if (pistaView && playaView) {
+            if (view === 'playa') {
+                pistaView.classList.remove('active');
+                playaView.classList.add('active');
+            } else {
+                pistaView.classList.add('active');
+                playaView.classList.remove('active');
+            }
+        }
+    };
 
-                // Mostrar/ocultar contenido de la vista
-                viewContents.forEach(content => {
-                    if (content.id === view + '-view') {
-                        content.classList.add('active');
-                    } else {
-                        content.classList.remove('active');
-                    }
-                });
-            });
-        });
+    // Si estamos en la página de equipos, gestionar la vista
+    if (document.getElementById('pista-view') || document.getElementById('playa-view')) {
+        handleTeamView();
     }
 });
