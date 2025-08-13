@@ -38,65 +38,73 @@
     <main>
         <section id="teams-list" class="container">
             <h2>Nuestros Equipos</h2>
+            <div class="tabs-container">
+                <button class="tab-button active" data-target="pista">Pista</button>
+                <button class="tab-button" data-target="playa">Playa</button>
+            </div>
 
-            <article class="team-category">
-                <h3>Balonmano Pista</h3>
-                <p>Nuestros equipos que compiten en pista cubierta durante la temporada regular.</p>
+            <div id="pista" class="tab-content active">
+                <article class="team-category">
+                    <h3>Balonmano Pista</h3>
+                    <p>Nuestros equipos que compiten en pista cubierta durante la temporada regular.</p>
 
-                <div class="team-grid">
-                    <section class="team-card">
-                        <h4>Senior Masculino</h4>
-                        <h5>Jugadores</h5>
-                        <ul>
-                            <li>AARON MEDINA BARRERA</li>
-                            <li>ADRIAN CHAMORRO POZO</li>
-                            <li>ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE</li>
-                            <li>ALVARO BLANCO DENIA</li>
-                            <li>CRISTIAN RAMIREZ VELA</li>
-                            <li>DAVID MUÑOZ RUIZ</li>
-                            <li>DIEGO GONZALEZ PICAZO</li>
-                            <li>FRANCISCO VIDAL MATEO</li>
-                            <li>FRANCISCO JAVIER MANZORRO CRESPO</li>
-                            <li>FRANCISCO JAVIER GUERRERO SUAREZ</li>
-                            <li>FRANCISCO MANUEL CLA MARTINEZ</li>
-                            <li>JOSE GOMEZ LOPEZ</li>
-                            <li>JOSE DAVILA ROBLE</li>
-                            <li>JUAN ANTONIO DOMINGUEZ MORENO</li>
-                            <li>JUAN JOSE CANALES CIFUENTES</li>
-                            <li>JUAN RAMON MERA DOMINGUEZ</li>
-                            <li>PABLO CARO RELINQUE</li>
-                            <li>PEDRO MORENO CALLADO</li>
-                            <li>SEBASTIAN CANALES CIFUENTES</li>
-                            <li>SEBASTIAN CARDOSO TRAUCA</li>
-                        </ul>
-                        <h5>Cuerpo Técnico</h5>
-                        <ul>
-                            <li>FERNANDO AREVALO ROSADO</li>
-                            <li>AITANA HEREDIA BREAS</li>
-                            <li>ANTONIO MANUEL VALDES VIEGAS</li>
-                            <li>LUISA PICAZO BARRIENTOS</li>
-                            <li>TOMAS JESUS RAMIREZ TIRADO</li>
-                        </ul>
-                    </section>
-                    <section class="team-card">
-                        <h4>Juvenil Masculino</h4>
-                        <p>Información de la plantilla próximamente.</p>
-                    </section>
-                    <section class="team-card">
-                        <h4>Cadete Masculino y Femenino</h4>
-                        <p>Información de la plantilla próximamente.</p>
-                    </section>
-                    <section class="team-card">
-                        <h4>Infantil Masculino y Femenino</h4>
-                        <p>Información de la plantilla próximamente.</p>
-                    </section>
-                </div>
-            </article>
+                    <div class="team-grid">
+                        <section class="team-card">
+                            <h4>Senior Masculino</h4>
+                            <h5>Jugadores</h5>
+                            <ul>
+                                <li>AARON MEDINA BARRERA</li>
+                                <li>ADRIAN CHAMORRO POZO</li>
+                                <li>ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE</li>
+                                <li>ALVARO BLANCO DENIA</li>
+                                <li>CRISTIAN RAMIREZ VELA</li>
+                                <li>DAVID MUÑOZ RUIZ</li>
+                                <li>DIEGO GONZALEZ PICAZO</li>
+                                <li>FRANCISCO VIDAL MATEO</li>
+                                <li>FRANCISCO JAVIER MANZORRO CRESPO</li>
+                                <li>FRANCISCO JAVIER GUERRERO SUAREZ</li>
+                                <li>FRANCISCO MANUEL CLA MARTINEZ</li>
+                                <li>JOSE GOMEZ LOPEZ</li>
+                                <li>JOSE DAVILA ROBLE</li>
+                                <li>JUAN ANTONIO DOMINGUEZ MORENO</li>
+                                <li>JUAN JOSE CANALES CIFUENTES</li>
+                                <li>JUAN RAMON MERA DOMINGUEZ</li>
+                                <li>PABLO CARO RELINQUE</li>
+                                <li>PEDRO MORENO CALLADO</li>
+                                <li>SEBASTIAN CANALES CIFUENTES</li>
+                                <li>SEBASTIAN CARDOSO TRAUCA</li>
+                            </ul>
+                            <h5>Cuerpo Técnico</h5>
+                            <ul>
+                                <li>FERNANDO AREVALO ROSADO</li>
+                                <li>AITANA HEREDIA BREAS</li>
+                                <li>ANTONIO MANUEL VALDES VIEGAS</li>
+                                <li>LUISA PICAZO BARRIENTOS</li>
+                                <li>TOMAS JESUS RAMIREZ TIRADO</li>
+                            </ul>
+                        </section>
+                        <section class="team-card">
+                            <h4>Juvenil Masculino</h4>
+                            <p>Información de la plantilla próximamente.</p>
+                        </section>
+                        <section class="team-card">
+                            <h4>Cadete Masculino y Femenino</h4>
+                            <p>Información de la plantilla próximamente.</p>
+                        </section>
+                        <section class="team-card">
+                            <h4>Infantil Masculino y Femenino</h4>
+                            <p>Información de la plantilla próximamente.</p>
+                        </section>
+                    </div>
+                </article>
+            </div>
 
-            <article class="team-category">
-                <h3>Balonmano Playa</h3>
-                <p>Equipos que compiten en la modalidad de balonmano playa durante la temporada de verano. Información de las plantillas próximamente.</p>
-            </article>
+            <div id="playa" class="tab-content">
+                <article class="team-category">
+                    <h3>Balonmano Playa</h3>
+                    <p>Equipos que compiten en la modalidad de balonmano playa durante la temporada de verano. Información de las plantillas próximamente.</p>
+                </article>
+            </div>
 
         </section>
     </main>

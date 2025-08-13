@@ -708,6 +708,50 @@ img {
 
 
 /* ==========================================================================
+   12. INTERFAZ DE PESTAÑAS (EQUIPOS)
+   ========================================================================== */
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.tab-button:hover {
+    background-color: var(--primary-color-light);
+    color: var(--light-text-color);
+    border-color: var(--primary-color-light);
+}
+
+.tab-button.active {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none; /* Oculto por defecto */
+}
+
+.tab-content.active {
+    display: block; /* Visible cuando está activo */
+}
+
+
+
+/* ==========================================================================
    9. ACCESIBILIDAD
    ========================================================================== */
 /* Estilo de foco visible para navegación con teclado */

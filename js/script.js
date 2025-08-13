@@ -100,27 +100,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * ------------------------------------------------
-     * EXTRA: Microinteracción en el carrito de la compra (ejemplo)
+     * 4. LÓGICA DE PESTAÑAS (PÁGINA DE EQUIPOS)
      * ------------------------------------------------
-     * Simula añadir productos al carrito y actualiza el contador.
+     * Controla la interfaz de pestañas para mostrar equipos de Pista o Playa.
      */
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-    const cartCount = document.querySelector('.cart-count');
-    let itemsInCart = 0;
+    const tabsContainer = document.querySelector('.tabs-container');
 
-    if (addToCartButtons.length > 0 && cartCount) {
-        addToCartButtons.forEach(button => {
+    if (tabsContainer) {
+        const tabButtons = tabsContainer.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                itemsInCart++;
-                cartCount.textContent = itemsInCart;
+                const targetId = button.dataset.target;
+                const targetContent = document.getElementById(targetId);
 
-                // Añade una pequeña animación al contador
-                cartCount.style.transform = 'scale(1.3)';
-                setTimeout(() => {
-                    cartCount.style.transform = 'scale(1)';
-                }, 150);
+                // Ocultar todos los contenidos y quitar clase activa a todos los botones
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
 
-                console.log(`Producto añadido. Total en carrito: ${itemsInCart}`);
+                // Mostrar el contenido correcto y marcar el botón como activo
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+                button.classList.add('active');
             });
         });
     }
