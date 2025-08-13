@@ -100,23 +100,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * ------------------------------------------------
-     * 4. LÓGICA DE ACORDEÓN (PÁGINA DE EQUIPOS)
+     * 4. FILTRADO DE EQUIPOS (PÁGINA DE EQUIPOS)
      * ------------------------------------------------
-     * Controla el despliegue de las plantillas de jugadores.
+     * Encapsula la lógica de filtrado para que sea reutilizable.
      */
-    const accordions = document.querySelectorAll('.accordion');
+    const setupTeamFiltering = (filterContainerId, teamsContainerId) => {
+        const filterButtons = document.querySelectorAll(`#${filterContainerId} .tab-button`);
+        const teamEntries = document.querySelectorAll(`#${teamsContainerId} .team-entry`);
 
-    accordions.forEach(accordion => {
-        accordion.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
+        if (filterButtons.length > 0 && teamEntries.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Gestionar la clase 'active' en los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+
+                    // Mostrar u ocultar equipos
+                    teamEntries.forEach(entry => {
+                        const entryCategory = entry.getAttribute('data-category');
+                        if (category === 'all' || entryCategory === category) {
+                            entry.classList.remove('hidden');
+                        } else {
+                            entry.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+    };
+
+    // Inicializar filtrado para equipos de pista
+    setupTeamFiltering('team-filters', 'teams-container');
+
+    // Inicializar filtrado para equipos de playa
+    setupTeamFiltering('beach-team-filters', 'beach-teams-container');
+
+    /**
+     * ------------------------------------------------
+     * 5. GESTIÓN DE VISTAS (PÁGINA DE EQUIPOS)
+     * ------------------------------------------------
+     * Muestra la vista correcta ('Pista' or 'Playa') basado en el parámetro URL.
+     */
+    const handleTeamView = () => {
+        const params = new URLSearchParams(window.location.search);
+        const view = params.get('view') || 'pista'; // Default to 'pista'
+
+        const pistaView = document.getElementById('pista-view');
+        const playaView = document.getElementById('playa-view');
+
+        if (pistaView && playaView) {
+            if (view === 'playa') {
+                pistaView.classList.remove('active');
+                playaView.classList.add('active');
             } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
+                pistaView.classList.add('active');
+                playaView.classList.remove('active');
             }
-        });
-    });
+        }
+    };
 
-
+    // Si estamos en la página de equipos, gestionar la vista
+    if (document.getElementById('pista-view') || document.getElementById('playa-view')) {
+        handleTeamView();
+    }
 });
