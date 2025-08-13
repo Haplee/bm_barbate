@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar filtrado para equipos de playa
     setupTeamFiltering('beach-team-filters', 'beach-teams-container');
 
+
     /**
      * ------------------------------------------------
      * 5. GESTIÓN DE VISTAS (PÁGINA DE EQUIPOS)
