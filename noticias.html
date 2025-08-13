@@ -16,14 +16,21 @@
     <header id="main-header">
         <div class="header-container">
             <a href="index.html" class="logo">
-                <img src="http://balonmano.isquad.es/images/afiliacion_clubs/100165/square_6467683739316b316233.jpg" alt="Logo del Club Balonmano Barbate" style="height: 60px; border-radius: 50%;">
+                <img src="http://balonmano.isquad.es/images/afiliacion_clubs/100165/square_6467683739316b316233.jpg" alt="Logo del Club Balonmano Barbate" style="height: 60px;">
             </a>
             <nav id="main-nav" aria-label="Menú principal">
                 <ul class="nav-list">
                     <li><a href="club.html">Club</a></li>
-                    <li><a href="equipos.html">Equipos</a></li>
+                    <li class="dropdown">
+                        <a href="equipos.html" class="dropdown-toggle">Equipos</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="equipos.html?view=pista">Pista</a></li>
+                            <li><a href="equipos.html?view=playa">Playa</a></li>
+                        </ul>
+                    </li>
                     <li><a href="noticias.html">Noticias</a></li>
                     <li><a href="galerias.html">Galerías</a></li>
+                    <li><a href="entrenadores.html">Entrenadores</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
@@ -152,6 +159,9 @@
     </div>
 
     <script src="js/script.js"></script>
+
+    <!-- Botón de Scroll-to-Top -->
+    <button id="scroll-to-top-btn" title="Volver arriba">&uarr;</button>
 
 </body>
 </html>
