@@ -103,21 +103,28 @@ img {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Pushes nav items to the right */
     align-items: center;
     height: 100%;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative; /* Needed for logo positioning */
 }
 
-.logo svg {
-    height: 50px;
-    width: auto;
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: transform var(--transition-speed) ease;
 }
 
-#main-header.header-scrolled .logo svg {
-    transform: scale(0.85);
+.logo img {
+    height: 60px;
+}
+
+#main-header.header-scrolled .logo {
+    transform: translate(-50%, -50%) scale(0.85);
 }
 
 /* Menú de navegación */
@@ -618,15 +625,14 @@ img {
 }
 
 .sponsors img {
-    height: 30px;
+    height: 40px; /* Increased height for better visibility */
     width: auto;
-    filter: grayscale(100%) brightness(3); /* Logos en blanco */
-    opacity: 0.7;
+    max-width: 150px; /* Ensure logo is not too wide */
     transition: opacity var(--transition-speed) ease;
 }
 
-.sponsors img:hover {
-    opacity: 1;
+.sponsors a:hover img {
+    opacity: 0.8;
 }
 
 .footer-bottom {
@@ -1034,4 +1040,40 @@ a:focus-visible, button:focus-visible {
     background-color: var(--accent-color);
     color: var(--primary-color);
     transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   17. MOBILE DROPDOWN STYLES
+   ========================================================================== */
+
+/* Show the dropdown inside the mobile nav flow */
+@media (max-width: 991px) {
+    #main-nav.is-active .nav-list .dropdown .dropdown-menu {
+        position: static;
+        display: none; /* Hidden by default */
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0.5rem 0 0.5rem 1.5rem; /* Indent sub-items */
+        margin-top: 0;
+        min-width: unset;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        border-radius: 0;
+    }
+
+    #main-nav.is-active .nav-list .dropdown.is-open .dropdown-menu {
+        display: block; /* Show when parent is open */
+    }
+
+    #main-nav.is-active .nav-list .dropdown .dropdown-menu a {
+        padding: 0.5rem 0;
+        font-size: 1.2rem; /* A bit smaller than main links */
+        color: var(--light-text-color);
+    }
+
+    #main-nav.is-active .nav-list .dropdown .dropdown-menu a:hover {
+        color: var(--accent-color);
+        background-color: transparent;
+    }
 }

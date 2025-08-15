@@ -177,10 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
 
         dropdownToggle.addEventListener('click', (event) => {
-            // No prevenir la navegación en móvil, solo en escritorio
-            if (window.innerWidth > 992) {
-                event.preventDefault();
-            }
+            // Prevenir la navegación en todos los dispositivos para abrir el submenú.
+            event.preventDefault();
             dropdown.classList.toggle('is-open');
         });
 
