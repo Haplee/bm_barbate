@@ -104,75 +104,15 @@ def scrape_team_data(url):
 
     return team_name, players, coaches
 
-def generate_team_html(team_data):
-    """ Generates the HTML block for a single team. """
-    players_html = ""
-    for player in team_data['players']:
-        players_html += f'<div class="player-card"><img src="https://via.placeholder.com/150" alt="Foto de {player["name"]}"><h4>{player["name"]}</h4></div>\\n'
+import os
 
-    return f"""
-<div class="team-entry" data-category="{team_data['category_slug']}">
-    <h3 class="team-name">{team_data['team_name']}</h3>
-    <div class="player-grid">
-        {players_html}
-    </div>
-</div>
-"""
-
-def generate_staff_html(staff_data):
-    """ Generates the HTML block for the staff grid. """
-    staff_html = ""
-    for name, data in staff_data.items():
-        roles_html = "".join([f"<li>{role}</li>" for role in data['roles']])
-        staff_html += f"""
-<div class="staff-card">
-    <img src="https://via.placeholder.com/150" alt="Foto de {name}">
-    <h4>{name}</h4>
-    <div class="staff-hover-info">
-        <h5>Equipos y Roles</h5>
-        <ul>{roles_html}</ul>
-    </div>
-</div>
-"""
-    return staff_html
-
-def update_equipos_page(teams_data):
-    """ Updates the equipos.html file with the new data. """
-    with open('equipos.html', 'r', encoding='utf-8') as f:
-        soup = BeautifulSoup(f, 'html.parser')
-
-    container = soup.find('div', id='beach-teams-container')
-    if not container:
-        print("Error: Could not find the 'beach-teams-container' div in equipos.html")
-        return
-
-    container.clear()
-
-    for team in teams_data:
-        team_html = generate_team_html(team)
-        container.append(BeautifulSoup(team_html, 'html.parser'))
-
-    with open('equipos.html', 'w', encoding='utf-8') as f:
-        f.write(str(soup.prettify()))
-    print("equipos.html has been updated successfully.")
-
-def update_entrenadores_page(staff_data):
-    """ Updates the entrenadores.html file with the new data. """
-    with open('entrenadores.html', 'r', encoding='utf-8') as f:
-        soup = BeautifulSoup(f, 'html.parser')
-
-    container = soup.find('div', class_='staff-grid')
-    if not container:
-        print("Error: Could not find the 'staff-grid' div in entrenadores.html")
-        return
-
-    container.clear()
-    staff_html = generate_staff_html(staff_data)
-    container.append(BeautifulSoup(staff_html, 'html.parser'))
-
-    with open('entrenadores.html', 'w', encoding='utf-8') as f:
-        f.write(str(soup.prettify()))
-    print("entrenadores.html has been updated successfully.")
+def save_to_json(data, filename):
+    """Saves the given data to a JSON file."""
+    # Create the directory if it doesn't exist
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+    print(f"{filename} has been updated successfully.")
 
 
 if __name__ == '__main__':
@@ -198,7 +138,7 @@ if __name__ == '__main__':
                 if role_entry not in all_staff_data[coach['name']]['roles']:
                     all_staff_data[coach['name']]['roles'].append(role_entry)
 
-    print("\\n--- Updating HTML files ---")
-    update_equipos_page(all_teams_data)
-    update_entrenadores_page(all_staff_data)
-    print("\\nHTML files update process complete.")
+    print("\n--- Saving data to JSON files ---")
+    save_to_json(all_teams_data, 'data/teams.json')
+    save_to_json(all_staff_data, 'data/staff.json')
+    print("\nJSON files update process complete.")

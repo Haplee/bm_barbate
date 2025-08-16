@@ -1,0 +1,790 @@
+[
+    {
+        "category_slug": "alevin-femenino",
+        "category_name": "Alevin femenino",
+        "team_name": "BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "ADRIANA BARRIENTOS GUERRERO"
+            },
+            {
+                "name": "CARLA VEGA PACHECO"
+            },
+            {
+                "name": "DANIELA RAMOS MORILLO"
+            },
+            {
+                "name": "DANIELA DEL CARMEN  ROSSI GIL"
+            },
+            {
+                "name": "JULIA  BERNAL TRUJILLO"
+            },
+            {
+                "name": "LUCIA RECIO BENITEZ"
+            },
+            {
+                "name": "MARIA MONTERO JODA"
+            },
+            {
+                "name": "MARIA MALIA FEU"
+            },
+            {
+                "name": "MAYRA VARO PACHECO"
+            },
+            {
+                "name": "PAOLA JIMENEZ DONCEL MORIANO"
+            },
+            {
+                "name": "SELIN SOFIA SAVAL TRAUTZ"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "JUAN JOSE CANALES CIFUENTES",
+                "role": "Oficial"
+            },
+            {
+                "name": "ALBA MARIA TAMAYO MANZORRO",
+                "role": "Invitado"
+            },
+            {
+                "name": "MARIA PERDIGONES RUBIO",
+                "role": "Invitado"
+            },
+            {
+                "name": "ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER MANZORRO CRESPO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "infantil-femenino-1",
+        "category_name": "Infantil femenino 1",
+        "team_name": "LA CHANCA BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "AFRICA DE LA ROSA ALVARADO"
+            },
+            {
+                "name": "AISHA VARO DIOUCK"
+            },
+            {
+                "name": "ALICIA MUÑOZ LOPEZ"
+            },
+            {
+                "name": "ELENA VARO BERNAL"
+            },
+            {
+                "name": "FATIMA  CARAVACA BERNAL"
+            },
+            {
+                "name": "FRANCESCA CROCI ORTEGA"
+            },
+            {
+                "name": "LOLA CID OLIVA"
+            },
+            {
+                "name": "MARIA VARO MUÑOZ"
+            },
+            {
+                "name": "MARIA ANTONIA DE LA CRUZ LIGERO"
+            },
+            {
+                "name": "ROSA GOMEZ DOMINGUEZ"
+            },
+            {
+                "name": "SARA FERNANDEZ BERNAL"
+            },
+            {
+                "name": "SARA FONSECA PARRA"
+            },
+            {
+                "name": "TERE SANCHEZ BERNAL"
+            },
+            {
+                "name": "VALERIA YOLANDA GARCIA MARQUEZ"
+            },
+            {
+                "name": "ZAMARA NAVARRO RODRIGUEZ"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "JOSE GOMEZ LOPEZ",
+                "role": "Entrenador"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Oficial"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER MANZORRO CRESPO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JOSE MANUEL ARAGON JIMENEZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "MARTIN PACHECO CAZORLA",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "OSCAR PEREZ SEQUERA",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "infantil-femenino-2",
+        "category_name": "infantil femenino 2",
+        "team_name": "BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "ARANTXA DE GOMAR LARA"
+            },
+            {
+                "name": "CARLA RODRIGUEZ CASTILLO"
+            },
+            {
+                "name": "CARMEN  CORRALES VARO"
+            },
+            {
+                "name": "CARMEN BARRIENTOS GALINDO"
+            },
+            {
+                "name": "CRISTINA SANCHEZ BEZA"
+            },
+            {
+                "name": "IDAYRA ANGULO AGUILAR"
+            },
+            {
+                "name": "JULIA VELAZQUEZ GARCIA"
+            },
+            {
+                "name": "LARA LOPEZ VILADOMS"
+            },
+            {
+                "name": "LUCIA MORON TRUJILLO"
+            },
+            {
+                "name": "MARGARITA MARQUEZ HORCAJADAS"
+            },
+            {
+                "name": "MARIA  GUERRERO ALCEDO"
+            },
+            {
+                "name": "MARTA PEREZ REVUELTA"
+            },
+            {
+                "name": "MARTA MALIA RENDON"
+            },
+            {
+                "name": "PAULA MORENO MEDINA"
+            },
+            {
+                "name": "PAULA  ARAGON BARRIENTOS"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "JOSE MANUEL ARAGON JIMENEZ",
+                "role": "Entrenador"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JUAN JOSE CANALES CIFUENTES",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "infantil-masculino-1",
+        "category_name": "infantil maculino 1",
+        "team_name": "BALONMANO BARBATE PROMESAS",
+        "players": [
+            {
+                "name": "DARIO GILABERT ROMERO"
+            },
+            {
+                "name": "GONZALO GUTIERREZ RUIZ"
+            },
+            {
+                "name": "JAVIER ALCEDO GONZALEZ"
+            },
+            {
+                "name": "JOSE DIEGO  BASALLOTE MARTIN"
+            },
+            {
+                "name": "MANUEL JESUS UTRERA GARCIA"
+            },
+            {
+                "name": "MIGUEL VILLAR MARTINEZ"
+            },
+            {
+                "name": "MIGUEL QUIROS PAREJA"
+            },
+            {
+                "name": "PABLO  RODRIGUEZ MORENO"
+            },
+            {
+                "name": "RAMON MORILLO SANCHEZ"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "ANTONIO JOSE RODRIGUEZ MALIA",
+                "role": "Entrenador"
+            },
+            {
+                "name": "MANUEL JESUS UTRERA TIRADO",
+                "role": "Oficial"
+            },
+            {
+                "name": "MARTIN PACHECO CAZORLA",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "infantil-masculino-2",
+        "category_name": "infantil masculino 2",
+        "team_name": "SALAZONES LA CHANCA BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "ADRIAN TOCINO MARTIN"
+            },
+            {
+                "name": "ALBERTO SANCHEZ ARAGON"
+            },
+            {
+                "name": "ALEJANDRO LOPEZ JIMENEZ"
+            },
+            {
+                "name": "EZEQUIEL LEWERENZ LOSADA"
+            },
+            {
+                "name": "FRANCISCO JAVIER SANCHEZ CANTILLO"
+            },
+            {
+                "name": "FRANCISCO JOSE MUÑOZ ALONSO"
+            },
+            {
+                "name": "JOSE GIL PACHECO"
+            },
+            {
+                "name": "MANUEL VALDES CANTILLO"
+            },
+            {
+                "name": "RODRIGO ROSADO GONZALEZ"
+            },
+            {
+                "name": "TOMAS RAMIREZ JIMENEZ"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Entrenador"
+            },
+            {
+                "name": "DIEGO RELINQUE LEMOS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "TOMAS JESUS RAMIREZ TIRADO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "cadete-femenino-1",
+        "category_name": "Cadete femenino 1",
+        "team_name": "BALONMANO BARBATE CAD FEM PROM",
+        "players": [
+            {
+                "name": "ALEJANDRA GONZALEZ MALIA"
+            },
+            {
+                "name": "CARMEN  CARO RELINQUE"
+            },
+            {
+                "name": "CARMEN GONZALEZ PICAZO"
+            },
+            {
+                "name": "CARMEN  MALIA CRESPO"
+            },
+            {
+                "name": "CELIA BLANCO DENIA"
+            },
+            {
+                "name": "DANIELA  CORTEJOSA VARO"
+            },
+            {
+                "name": "ELENA AREVALO RIVERA"
+            },
+            {
+                "name": "EVA TIRADO CLA"
+            },
+            {
+                "name": "GEMA GUZMAN AMBITE"
+            },
+            {
+                "name": "LUCIA RUBIO POZO"
+            },
+            {
+                "name": "LUCIA ALBA CORTEJOSA"
+            },
+            {
+                "name": "PATRICIA MALIA JODAR"
+            },
+            {
+                "name": "PAULA MONCAYO RODRIGUEZ"
+            },
+            {
+                "name": "ROSARIO LOPEZ NUÑEZ"
+            },
+            {
+                "name": "SOFIA BRAVO GRAÑA"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "PEDRO MORENO CALLADO",
+                "role": "Entrenador"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Oficial"
+            },
+            {
+                "name": "ALEJANDRO GUERRERO VARO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JOSE GOMEZ LOPEZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JOSE MANUEL ARAGON JIMENEZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "cadete-femenino-2",
+        "category_name": "Cadete femenino 2",
+        "team_name": "LA CHANCA BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "CARMEN  GIL GILIBERT"
+            },
+            {
+                "name": "CLAUDIA  CUENCA SANCHEZ DE LA CAMPA"
+            },
+            {
+                "name": "LUCIA  TAMAYO MANZORRO"
+            },
+            {
+                "name": "MARIA RAMOS CHIRINO"
+            },
+            {
+                "name": "MARIA VARO CABALLERO"
+            },
+            {
+                "name": "MIRIAM GONZALEZ TAMAYO"
+            },
+            {
+                "name": "NORA DIEGO VENEGAS"
+            },
+            {
+                "name": "NORA LABANDON BERNAL"
+            },
+            {
+                "name": "PAOLA CORRALES VARO"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "FRANCISCO JAVIER MANZORRO CRESPO",
+                "role": "Entrenador"
+            },
+            {
+                "name": "OSCAR PEREZ SEQUERA",
+                "role": "Oficial"
+            },
+            {
+                "name": "ALEJANDRO GUERRERO VARO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JOSE GOMEZ LOPEZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JOSE MANUEL ARAGON JIMENEZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "cadete-masculino",
+        "category_name": "Cadete masculino",
+        "team_name": "SALAZONES LA CHANCA BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "ALEJANDRO NUÑEZ CARAMAZANA"
+            },
+            {
+                "name": "ALEJANDRO MEDINA BARRERA"
+            },
+            {
+                "name": "ALI VERSACI DIAZ"
+            },
+            {
+                "name": "ALONSO  OLIVA SANCHEZ"
+            },
+            {
+                "name": "ALVARO  RAMIREZ PAREJA"
+            },
+            {
+                "name": "ANTONIO VILLAR MARTINEZ"
+            },
+            {
+                "name": "ANTONIO CHAMORRO ALBA"
+            },
+            {
+                "name": "DARIO MEDINA BARRERA"
+            },
+            {
+                "name": "EZEQUIEL GRAÑA SOUZA"
+            },
+            {
+                "name": "JOSE ALBERTO GOMEZ DOMINGUEZ"
+            },
+            {
+                "name": "JOSE ANGEL POZO NARVAEZ"
+            },
+            {
+                "name": "JOSE MANUEL PAREJA DAVILA"
+            },
+            {
+                "name": "MANUEL ANTONIO RELINQUE CAMACHO"
+            },
+            {
+                "name": "PEDRO LARA OLIVA"
+            },
+            {
+                "name": "RAMON DEL POZO ROSSI"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "MARTIN PACHECO CAZORLA",
+                "role": "Entrenador"
+            },
+            {
+                "name": "ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE",
+                "role": "Oficial"
+            },
+            {
+                "name": "ALEJANDRO GUERRERO VARO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER MANZORRO CRESPO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JUAN JOSE CANALES CIFUENTES",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "senior-femenino",
+        "category_name": "Senior femenino",
+        "team_name": "BM BARBATE",
+        "players": [
+            {
+                "name": "ANA CHICA MARTIN"
+            },
+            {
+                "name": "CARMEN  RAMOS CHIRINO"
+            },
+            {
+                "name": "JACQUELINE YAZMIN FONSECA PARRA"
+            },
+            {
+                "name": "LUCI RAMIREZ JIMENEZ"
+            },
+            {
+                "name": "MACARENA LOZANO TOVAR"
+            },
+            {
+                "name": "MARIA CRESPO GALLARDO"
+            },
+            {
+                "name": "MARIA LUZ BERNAL OLIVA"
+            },
+            {
+                "name": "MARTA BENITEZ OLIVA"
+            },
+            {
+                "name": "ROSARIO CABELLO ESTUDILLO"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "TOMAS JESUS RAMIREZ TIRADO",
+                "role": "Entrenador"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "DIEGO RELINQUE LEMOS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "senior-masculino-1",
+        "category_name": "senior masculino 1",
+        "team_name": "SALAZONES LA CHANCA BM BARBATE",
+        "players": [
+            {
+                "name": "ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE"
+            },
+            {
+                "name": "DAVID GARRIDO LOPEZ"
+            },
+            {
+                "name": "DAVID JIMENEZ RODRIGUEZ"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO"
+            },
+            {
+                "name": "DIEGO RELINQUE LEMOS"
+            },
+            {
+                "name": "FRANCISCO JAVIER MANZORRO CRESPO"
+            },
+            {
+                "name": "JAVIER SANCHEZ BARON"
+            },
+            {
+                "name": "JOSE GOMEZ LOPEZ"
+            },
+            {
+                "name": "MARTIN PACHECO CAZORLA"
+            },
+            {
+                "name": "OSCAR RUIZ GARCIA"
+            },
+            {
+                "name": "PABLO VALLEJO HERNANDEZ"
+            },
+            {
+                "name": "SEBASTIAN CARDOSO TRAUCA"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "ANTONIO JOSE RODRIGUEZ MALIA",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "OSCAR PEREZ SEQUERA",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "PEDRO MORENO CALLADO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "TOMAS JESUS RAMIREZ TIRADO",
+                "role": "Staff Adicional"
+            }
+        ]
+    },
+    {
+        "category_slug": "senior-masculino-2",
+        "category_name": "senior masculino 2",
+        "team_name": "BALONMANO BARBATE",
+        "players": [
+            {
+                "name": "AARON MEDINA BARRERA"
+            },
+            {
+                "name": "ADRIAN GUZMAN AMBITE"
+            },
+            {
+                "name": "ALEJANDRO GUERRERO VARO"
+            },
+            {
+                "name": "BRIAN HERNANDEZ MALIA"
+            },
+            {
+                "name": "FRANCISCO VIDAL MATEO"
+            },
+            {
+                "name": "FRANCISCO JAVIER GUERRERO SUAREZ"
+            },
+            {
+                "name": "FRANCISCO MANUEL CLA MARTINEZ"
+            },
+            {
+                "name": "GONZALO  VERDUGO MARTINEZ"
+            },
+            {
+                "name": "JESUS CABELLO MALIA"
+            },
+            {
+                "name": "JUAN JOSE CANALES CIFUENTES"
+            },
+            {
+                "name": "MIGUEL MARISCAL PEREZ"
+            },
+            {
+                "name": "OSCAR PEREZ SEQUERA"
+            },
+            {
+                "name": "RICARDO  CRESPO GALLARDO"
+            },
+            {
+                "name": "SAMUEL VARO AMBITE"
+            },
+            {
+                "name": "TOMAS JESUS RAMIREZ TIRADO"
+            }
+        ],
+        "coaches": [
+            {
+                "name": "ANTONIO JOSE RODRIGUEZ MALIA",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "ANTONIO MANUEL VALDES VIEGAS",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "DIEGO  GONZALEZ PICAZO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "FRANCISCO JAVIER MANZORRO CRESPO",
+                "role": "Staff Adicional"
+            },
+            {
+                "name": "JOSE GOMEZ LOPEZ",
+                "role": "Staff Adicional"
+            }
+        ]
+    }
+]
