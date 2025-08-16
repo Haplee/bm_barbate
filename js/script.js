@@ -247,4 +247,115 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(grid);
         });
     }
+
+    /**
+     * ------------------------------------------------
+     * 9. CARGA DINÁMICA DE DATOS
+     * ------------------------------------------------
+     * Carga los datos de los equipos y del personal desde archivos JSON.
+     */
+
+    // Función genérica para obtener datos JSON
+    async function fetchData(url) {
+        try {
+            // Añadir un parámetro de cache-busting a la URL
+            const cacheBustingUrl = `${url}?v=${new Date().getTime()}`;
+            const response = await fetch(cacheBustingUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error(`Could not fetch data from ${url}:`, error);
+            return null;
+        }
+    }
+
+    // Función para crear una tarjeta de jugador
+    function createPlayerCard(player) {
+        // Sanitizar el nombre para evitar problemas de XSS.
+        const playerName = player.name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        return `
+            <div class="player-card">
+                <img src="https://via.placeholder.com/150" alt="Foto de ${playerName}" loading="lazy">
+                <h4>${playerName}</h4>
+            </div>
+        `;
+    }
+
+    // Función para crear una tarjeta de miembro del staff
+    function createStaffCard(staffName, staffData) {
+        const sanitizedStaffName = staffName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const rolesList = staffData.roles.map(role => `<li>${role.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</li>`).join('');
+        return `
+            <div class="staff-card">
+                <img src="https://via.placeholder.com/150" alt="Foto de ${sanitizedStaffName}" loading="lazy">
+                <h4>${sanitizedStaffName}</h4>
+                <div class="staff-hover-info">
+                    <h5>Equipos y Roles</h5>
+                    <ul>${rolesList}</ul>
+                </div>
+            </div>
+        `;
+    }
+
+    // Función para renderizar los equipos
+    async function renderTeams() {
+        const teamsData = await fetchData('data/teams.json');
+        if (!teamsData) return;
+
+        const pistaContainer = document.getElementById('teams-container');
+        const playaContainer = document.getElementById('beach-teams-container');
+
+        if (pistaContainer) {
+            // Lógica para equipos de pista (actualmente vacía, adaptar si es necesario)
+            // pistaContainer.innerHTML = '<h3>Contenido de equipos de pista próximamente...</h3>';
+        }
+
+        if (playaContainer) {
+            let beachTeamsHtml = '';
+            teamsData.forEach(team => {
+                const playersHtml = team.players.map(createPlayerCard).join('');
+                beachTeamsHtml += `
+                    <div class="team-entry" data-category="${team.category_slug}">
+                        <h3 class="team-name">${team.team_name}</h3>
+                        <div class="player-grid">
+                            ${playersHtml}
+                        </div>
+                    </div>
+                `;
+            });
+            playaContainer.innerHTML = beachTeamsHtml;
+            // Re-inicializar el filtrado y las animaciones para el contenido dinámico
+            setupTeamFiltering('beach-team-filters', 'beach-teams-container');
+            const newGrids = playaContainer.querySelectorAll('.player-grid');
+            newGrids.forEach(grid => observer.observe(grid));
+        }
+    }
+
+    // Función para renderizar el cuerpo técnico
+    async function renderStaff() {
+        const staffData = await fetchData('data/staff.json');
+        if (!staffData) return;
+
+        const staffContainer = document.querySelector('#beach-staff-section .staff-grid');
+        if (staffContainer) {
+            let staffHtml = '';
+            for (const staffName in staffData) {
+                staffHtml += createStaffCard(staffName, staffData[staffName]);
+            }
+            staffContainer.innerHTML = staffHtml;
+            // Re-inicializar las animaciones para el contenido dinámico
+            observer.observe(staffContainer);
+        }
+    }
+
+    // Cargar datos según la página actual
+    if (document.getElementById('teams-list') || document.getElementById('beach-teams-list')) {
+        renderTeams();
+    }
+
+    if (document.getElementById('staff-list')) {
+        renderStaff();
+    }
 });
