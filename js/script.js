@@ -161,9 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Si estamos en la página de equipos, gestionar la vista
+    // Si estamos en la página de equipos, gestionar la vista Y LUEGO renderizar el contenido
     if (document.getElementById('pista-view') || document.getElementById('playa-view')) {
         handleTeamView();
+        // La renderización de equipos se llama DESPUÉS de que la vista se haya establecido
+        renderTeams();
     }
 
     /**
@@ -299,33 +301,61 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Función para renderizar los equipos
+    // Función para renderizar los equipos y los filtros dinámicamente
     async function renderTeams() {
         const teamsData = await fetchData('data/teams.json');
         if (!teamsData) return;
 
         const pistaContainer = document.getElementById('teams-container');
         const playaContainer = document.getElementById('beach-teams-container');
+        const beachFilterContainer = document.getElementById('beach-team-filters');
 
+        // Lógica para equipos de Pista (actualmente sin datos)
         if (pistaContainer) {
-            // Lógica para equipos de pista (actualmente vacía, adaptar si es necesario)
-            // pistaContainer.innerHTML = '<h3>Contenido de equipos de pista próximamente...</h3>';
+            const pistaFilterContainer = document.getElementById('team-filters');
+            pistaFilterContainer.innerHTML = '<p>No hay filtros de pista disponibles actualmente.</p>';
+            pistaContainer.innerHTML = '<h3>Contenido de equipos de pista próximamente...</h3>';
         }
 
-        if (playaContainer) {
+        // Lógica para equipos de Playa
+        if (playaContainer && beachFilterContainer) {
             let beachTeamsHtml = '';
+            const categories = new Set();
+
             teamsData.forEach(team => {
-                const playersHtml = team.players.map(createPlayerCard).join('');
+                // Añadir categoría a nuestro set para los filtros
+                categories.add(JSON.stringify({
+                    slug: team.category_slug,
+                    name: team.category_name
+                }));
+
+                // Crear HTML para cada equipo
+                const playersHtml = team.players.map(player => createPlayerCard(player, team.team_name)).join('');
+                const coachesHtml = team.coaches.map(coach => `<li>${coach.name} (${coach.role})</li>`).join('');
+
                 beachTeamsHtml += `
                     <div class="team-entry" data-category="${team.category_slug}">
                         <h3 class="team-name">${team.team_name}</h3>
                         <div class="player-grid">
                             ${playersHtml}
                         </div>
+                        ${coachesHtml ? `<h4>Cuerpo Técnico</h4><ul>${coachesHtml}</ul>` : ''}
                     </div>
                 `;
             });
+
+            // Generar botones de filtro dinámicamente
+            let filterHtml = '<button class="tab-button active" data-category="all">Todos</button>';
+            const parsedCategories = Array.from(categories).map(cat => JSON.parse(cat));
+            parsedCategories.sort((a, b) => a.name.localeCompare(b.name)); // Ordenar alfabéticamente
+
+            parsedCategories.forEach(category => {
+                filterHtml += `<button class="tab-button" data-category="${category.slug}">${category.name}</button>`;
+            });
+
+            beachFilterContainer.innerHTML = filterHtml;
             playaContainer.innerHTML = beachTeamsHtml;
+
             // Re-inicializar el filtrado y las animaciones para el contenido dinámico
             setupTeamFiltering('beach-team-filters', 'beach-teams-container');
             const newGrids = playaContainer.querySelectorAll('.player-grid');
@@ -351,10 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Cargar datos según la página actual
-    if (document.getElementById('teams-list') || document.getElementById('beach-teams-list')) {
-        renderTeams();
-    }
-
+    // La llamada a renderTeams() ha sido movida para que se ejecute después de handleTeamView()
     if (document.getElementById('staff-list')) {
         renderStaff();
     }
