@@ -479,6 +479,25 @@ h4 { font-size: 1.25rem; }
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUpAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    opacity: 0; /* Start hidden */
+}
+
+.fade-in-up.is-visible {
+    animation: fadeInUpAnimation 0.8s ease forwards;
+}
+
 /* Staggered animation for cards */
 .player-grid, .staff-grid, .news-grid {
     --stagger-delay: 100ms;
@@ -511,6 +530,88 @@ h4 { font-size: 1.25rem; }
 
 .view-content.active {
     display: block;
+}
+
+/* Exit-Intent Pop-up */
+.exit-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-popup.is-visible {
+    display: flex;
+}
+
+.exit-popup-content {
+    background: var(--primary-bg);
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: fadeInUp 0.5s ease;
+}
+
+.exit-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--secondary-text);
+}
+
+.exit-popup-content h3 {
+    margin-bottom: 1rem;
+}
+
+.exit-popup-content p {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-text);
+}
+
+#exit-popup-form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+#exit-popup-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Swiper Carousel Tweaks */
+.swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+.swiper-slide .news-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Theme Toggle Button */

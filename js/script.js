@@ -416,4 +416,105 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /**
+     * ------------------------------------------------
+     * 11. NEWS CAROUSEL (SWIPER.JS)
+     * ------------------------------------------------
+     * Inicializa el carrusel de noticias en la página de inicio.
+     */
+    const newsCarousel = document.querySelector('.news-carousel');
+    if (newsCarousel) {
+        const swiper = new Swiper(newsCarousel, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // when window width is >= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // when window width is >= 1024px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                }
+            }
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 12. EXIT-INTENT POP-UP
+     * ------------------------------------------------
+     * Muestra un pop-up cuando el usuario intenta salir de la página.
+     */
+    const exitPopup = document.getElementById('exit-intent-popup');
+    const closePopupBtn = document.getElementById('exit-popup-close');
+    const popupForm = document.getElementById('exit-popup-form');
+
+    if (exitPopup && closePopupBtn && popupForm) {
+        const showExitPopup = () => {
+            if (sessionStorage.getItem('exitPopupShown')) {
+                return;
+            }
+            exitPopup.classList.add('is-visible');
+            sessionStorage.setItem('exitPopupShown', 'true');
+        };
+
+        const hideExitPopup = () => {
+            exitPopup.classList.remove('is-visible');
+        };
+
+        // Mostrar al salir del viewport por la parte superior
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0) {
+                showExitPopup();
+            }
+        });
+
+        // Cerrar con el botón
+        closePopupBtn.addEventListener('click', hideExitPopup);
+
+        // Cerrar al enviar el formulario
+        popupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Aquí se podría añadir la lógica para enviar el email a un servicio
+            hideExitPopup();
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 13. SCROLL-BASED FADE-IN ANIMATIONS
+     * ------------------------------------------------
+     * Anima elementos para que aparezcan cuando entran en el viewport.
+     */
+    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const elementsToFadeIn = document.querySelectorAll('h2, .footer-section, #club-info p');
+    elementsToFadeIn.forEach(el => {
+        el.classList.add('fade-in-up'); // Prepare elements for animation
+        fadeInObserver.observe(el);
+    });
 });
