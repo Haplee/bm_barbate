@@ -161,9 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Si estamos en la página de equipos, gestionar la vista
+    // Si estamos en la página de equipos, gestionar la vista Y LUEGO renderizar el contenido
     if (document.getElementById('pista-view') || document.getElementById('playa-view')) {
         handleTeamView();
+        // La renderización de equipos se llama DESPUÉS de que la vista se haya establecido
+        renderTeams();
     }
 
     /**
@@ -299,33 +301,61 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Función para renderizar los equipos
+    // Función para renderizar los equipos y los filtros dinámicamente
     async function renderTeams() {
         const teamsData = await fetchData('data/teams.json');
         if (!teamsData) return;
 
         const pistaContainer = document.getElementById('teams-container');
         const playaContainer = document.getElementById('beach-teams-container');
+        const beachFilterContainer = document.getElementById('beach-team-filters');
 
+        // Lógica para equipos de Pista (actualmente sin datos)
         if (pistaContainer) {
-            // Lógica para equipos de pista (actualmente vacía, adaptar si es necesario)
-            // pistaContainer.innerHTML = '<h3>Contenido de equipos de pista próximamente...</h3>';
+            const pistaFilterContainer = document.getElementById('team-filters');
+            pistaFilterContainer.innerHTML = '<p>No hay filtros de pista disponibles actualmente.</p>';
+            pistaContainer.innerHTML = '<h3>Contenido de equipos de pista próximamente...</h3>';
         }
 
-        if (playaContainer) {
+        // Lógica para equipos de Playa
+        if (playaContainer && beachFilterContainer) {
             let beachTeamsHtml = '';
+            const categories = new Set();
+
             teamsData.forEach(team => {
-                const playersHtml = team.players.map(createPlayerCard).join('');
+                // Añadir categoría a nuestro set para los filtros
+                categories.add(JSON.stringify({
+                    slug: team.category_slug,
+                    name: team.category_name
+                }));
+
+                // Crear HTML para cada equipo
+                const playersHtml = team.players.map(player => createPlayerCard(player, team.team_name)).join('');
+                const coachesHtml = team.coaches.map(coach => `<li>${coach.name} (${coach.role})</li>`).join('');
+
                 beachTeamsHtml += `
                     <div class="team-entry" data-category="${team.category_slug}">
                         <h3 class="team-name">${team.team_name}</h3>
                         <div class="player-grid">
                             ${playersHtml}
                         </div>
+                        ${coachesHtml ? `<h4>Cuerpo Técnico</h4><ul>${coachesHtml}</ul>` : ''}
                     </div>
                 `;
             });
+
+            // Generar botones de filtro dinámicamente
+            let filterHtml = '<button class="tab-button active" data-category="all">Todos</button>';
+            const parsedCategories = Array.from(categories).map(cat => JSON.parse(cat));
+            parsedCategories.sort((a, b) => a.name.localeCompare(b.name)); // Ordenar alfabéticamente
+
+            parsedCategories.forEach(category => {
+                filterHtml += `<button class="tab-button" data-category="${category.slug}">${category.name}</button>`;
+            });
+
+            beachFilterContainer.innerHTML = filterHtml;
             playaContainer.innerHTML = beachTeamsHtml;
+
             // Re-inicializar el filtrado y las animaciones para el contenido dinámico
             setupTeamFiltering('beach-team-filters', 'beach-teams-container');
             const newGrids = playaContainer.querySelectorAll('.player-grid');
@@ -351,11 +381,140 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Cargar datos según la página actual
-    if (document.getElementById('teams-list') || document.getElementById('beach-teams-list')) {
-        renderTeams();
-    }
-
+    // La llamada a renderTeams() ha sido movida para que se ejecute después de handleTeamView()
     if (document.getElementById('staff-list')) {
         renderStaff();
     }
+
+    /**
+     * ------------------------------------------------
+     * 10. THEME TOGGLE (DARK/LIGHT MODE)
+     * ------------------------------------------------
+     * Permite al usuario cambiar entre el tema claro y oscuro.
+     * La preferencia se guarda en localStorage.
+     */
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const body = document.body;
+
+    if (themeToggleBtn) {
+        // Al cargar la página, comprueba la preferencia guardada
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        // Añade el listener al botón
+        themeToggleBtn.addEventListener('click', () => {
+            // Alterna la clase en el body
+            body.classList.toggle('dark-mode');
+
+            // Guarda la preferencia actual en localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 11. NEWS CAROUSEL (SWIPER.JS)
+     * ------------------------------------------------
+     * Inicializa el carrusel de noticias en la página de inicio.
+     */
+    const newsCarousel = document.querySelector('.news-carousel');
+    if (newsCarousel) {
+        const swiper = new Swiper(newsCarousel, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // when window width is >= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // when window width is >= 1024px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                }
+            }
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 12. EXIT-INTENT POP-UP
+     * ------------------------------------------------
+     * Muestra un pop-up cuando el usuario intenta salir de la página.
+     */
+    const exitPopup = document.getElementById('exit-intent-popup');
+    const closePopupBtn = document.getElementById('exit-popup-close');
+    const popupForm = document.getElementById('exit-popup-form');
+
+    if (exitPopup && closePopupBtn && popupForm) {
+        const showExitPopup = () => {
+            if (sessionStorage.getItem('exitPopupShown')) {
+                return;
+            }
+            exitPopup.classList.add('is-visible');
+            sessionStorage.setItem('exitPopupShown', 'true');
+        };
+
+        const hideExitPopup = () => {
+            exitPopup.classList.remove('is-visible');
+        };
+
+        // Mostrar al salir del viewport por la parte superior
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0) {
+                showExitPopup();
+            }
+        });
+
+        // Cerrar con el botón
+        closePopupBtn.addEventListener('click', hideExitPopup);
+
+        // Cerrar al enviar el formulario
+        popupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Aquí se podría añadir la lógica para enviar el email a un servicio
+            hideExitPopup();
+        });
+    }
+
+    /**
+     * ------------------------------------------------
+     * 13. SCROLL-BASED FADE-IN ANIMATIONS
+     * ------------------------------------------------
+     * Anima elementos para que aparezcan cuando entran en el viewport.
+     */
+    const fadeInObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const elementsToFadeIn = document.querySelectorAll('h2, .footer-section, #club-info p');
+    elementsToFadeIn.forEach(el => {
+        el.classList.add('fade-in-up'); // Prepare elements for animation
+        fadeInObserver.observe(el);
+    });
 });

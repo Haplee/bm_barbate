@@ -2,18 +2,7 @@
     "JUAN JOSE CANALES CIFUENTES": {
         "roles": [
             "Oficial @ BALONMANO BARBATE",
-            "Staff Adicional @ BALONMANO BARBATE",
-            "Staff Adicional @ SALAZONES LA CHANCA BALONMANO BARBATE"
-        ]
-    },
-    "ALBA MARIA TAMAYO MANZORRO": {
-        "roles": [
-            "Invitado @ BALONMANO BARBATE"
-        ]
-    },
-    "MARIA PERDIGONES RUBIO": {
-        "roles": [
-            "Invitado @ BALONMANO BARBATE"
+            "Staff Adicional @ BALONMANO BARBATE"
         ]
     },
     "ALFREDO JOSE CASTILLO GOMEZ DE LA TORRE": {
@@ -29,8 +18,7 @@
             "Entrenador @ SALAZONES LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BALONMANO BARBATE CAD FEM PROM",
             "Staff Adicional @ SALAZONES LA CHANCA BALONMANO BARBATE",
-            "Staff Adicional @ BM BARBATE",
-            "Staff Adicional @ SALAZONES LA CHANCA BM BARBATE"
+            "Staff Adicional @ BM BARBATE"
         ]
     },
     "FRANCISCO JAVIER MANZORRO CRESPO": {
@@ -38,15 +26,15 @@
             "Staff Adicional @ BALONMANO BARBATE",
             "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Entrenador @ LA CHANCA BALONMANO BARBATE",
-            "Staff Adicional @ SALAZONES LA CHANCA BALONMANO BARBATE"
+            "Staff Adicional @ BALONMANO BARBATE"
         ]
     },
     "FRANCISCO JAVIER GUERRERO SUAREZ": {
         "roles": [
             "Staff Adicional @ BALONMANO BARBATE",
             "Oficial @ LA CHANCA BALONMANO BARBATE",
+            "Staff Adicional @ BALONMANO BARBATE",
             "Staff Adicional @ BALONMANO BARBATE CAD FEM PROM",
-            "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ SALAZONES LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BM BARBATE"
         ]
@@ -59,11 +47,12 @@
             "Staff Adicional @ BALONMANO BARBATE"
         ]
     },
-    "DIEGO  GONZALEZ PICAZO": {
+    "DIEGO GONZALEZ PICAZO": {
         "roles": [
             "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BALONMANO BARBATE",
             "Oficial @ BALONMANO BARBATE CAD FEM PROM",
+            "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ SALAZONES LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BM BARBATE"
         ]
@@ -72,7 +61,8 @@
         "roles": [
             "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Entrenador @ BALONMANO BARBATE",
-            "Staff Adicional @ BALONMANO BARBATE CAD FEM PROM"
+            "Staff Adicional @ BALONMANO BARBATE CAD FEM PROM",
+            "Staff Adicional @ LA CHANCA BALONMANO BARBATE"
         ]
     },
     "MARTIN PACHECO CAZORLA": {
@@ -89,12 +79,13 @@
             "Staff Adicional @ SALAZONES LA CHANCA BM BARBATE"
         ]
     },
-    "RICARDO  CRESPO GALLARDO": {
+    "RICARDO CRESPO GALLARDO": {
         "roles": [
             "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BALONMANO BARBATE",
             "Staff Adicional @ SALAZONES LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BALONMANO BARBATE CAD FEM PROM",
+            "Staff Adicional @ LA CHANCA BALONMANO BARBATE",
             "Staff Adicional @ BM BARBATE",
             "Staff Adicional @ SALAZONES LA CHANCA BM BARBATE"
         ]
