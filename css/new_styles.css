@@ -166,8 +166,9 @@ h4 { font-size: 1.25rem; }
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    background: var(--secondary-bg);
+    left: 50%;
+    transform: translateX(-50%); /* Center the dropdown */
+    background: var(--card-bg); /* Use card-bg for consistency */
     border-radius: 8px;
     list-style: none;
     padding: 0.5rem 0;
@@ -175,6 +176,7 @@ h4 { font-size: 1.25rem; }
     min-width: 180px;
     box-shadow: 0 8px 24px var(--shadow-color);
     animation: fadeIn 0.3s ease forwards;
+    border: 1px solid var(--border-color);
 }
 
 .dropdown.is-open .dropdown-menu {
@@ -431,6 +433,12 @@ h4 { font-size: 1.25rem; }
     transform: scale(1.1);
 }
 
+
+.social-bar a svg {
+    width: 24px;
+    height: 24px;
+}
+
 .footer-section ul {
     list-style: none;
 }
@@ -530,6 +538,58 @@ h4 { font-size: 1.25rem; }
 
 .view-content.active {
     display: block;
+}
+
+/* Cookie Banner */
+#cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1500;
+    max-width: 380px;
+    transform: translateY(200%);
+    transition: transform 0.5s ease-in-out;
+    display: none; /* Controlled by JS */
+}
+
+#cookie-banner.is-visible {
+    display: block;
+    transform: translateY(0);
+}
+
+#cookie-banner p {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cookie-buttons button, .cookie-buttons a {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+#cookie-accept-btn {
+    background: var(--primary-accent);
+    color: #fff;
+}
+
+#cookie-reject-btn, .cookie-info-link {
+    background: var(--secondary-bg);
+    color: var(--primary-text);
 }
 
 /* Exit-Intent Pop-up */
