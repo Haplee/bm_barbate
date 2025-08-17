@@ -385,4 +385,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('staff-list')) {
         renderStaff();
     }
+
+    /**
+     * ------------------------------------------------
+     * 10. THEME TOGGLE (DARK/LIGHT MODE)
+     * ------------------------------------------------
+     * Permite al usuario cambiar entre el tema claro y oscuro.
+     * La preferencia se guarda en localStorage.
+     */
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const body = document.body;
+
+    if (themeToggleBtn) {
+        // Al cargar la página, comprueba la preferencia guardada
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        // Añade el listener al botón
+        themeToggleBtn.addEventListener('click', () => {
+            // Alterna la clase en el body
+            body.classList.toggle('dark-mode');
+
+            // Guarda la preferencia actual en localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
 });
