@@ -705,6 +705,16 @@ body.dark-mode #theme-toggle-btn .moon-icon {
     .hero-content h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
 
+    .header-container {
+        width: 100%; /* Ocupar todo el ancho */
+        padding: 0 1rem; /* Añadir padding horizontal */
+    }
+
+    .logo img {
+        height: 40px; /* Reducir el tamaño del logo */
+        width: 40px;
+    }
+
     #main-nav {
         display: none;
         position: absolute;
@@ -712,6 +722,7 @@ body.dark-mode #theme-toggle-btn .moon-icon {
         left: 0;
         width: 100%;
         background: var(--secondary-bg);
+        border-top: 1px solid var(--border-color); /* Separador visual */
     }
     #main-nav.is-active {
         display: block;
@@ -751,5 +762,64 @@ body.dark-mode #theme-toggle-btn .moon-icon {
     }
     #hamburger-btn.is-active .hamburger-line:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+
+    #hero {
+        padding: 4rem 5%; /* Reducir padding en móvil */
+        text-align: center; /* Centrar texto en móvil */
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem; /* Reducir tamaño de fuente del título */
+    }
+
+    .hero-content p {
+        font-size: 1.2rem; /* Reducir tamaño de fuente del subtítulo */
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.8rem; /* Botón más pequeño */
+        font-size: 0.9rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Apilar las secciones */
+        text-align: center;
+    }
+
+    .sponsors {
+        justify-content: center; /* Centrar patrocinadores */
+        display: flex;
+    }
+
+    .social-bar {
+        flex-direction: row; /* Iconos en fila */
+        justify-content: center; /* Centrar los iconos */
+        gap: 1.5rem;
+        position: fixed;
+        bottom: 0; /* Fijar en la parte inferior */
+        top: auto;
+        left: 0;
+        width: 100%;
+        padding: 0.75rem 0;
+        background: var(--header-bg); /* Fondo con transparencia */
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--border-color);
+        transform: none; /* Resetear la transformación vertical */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem; /* Mayor reducción de fuente para pantallas muy pequeñas */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    #main-footer {
+        margin-bottom: 60px; /* Asegurar que la barra social no se solape con el footer */
     }
 }
