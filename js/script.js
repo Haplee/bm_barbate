@@ -308,59 +308,65 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!teamsData) return;
 
         const pistaContainer = document.getElementById('teams-container');
+        const pistaFilterContainer = document.getElementById('team-filters');
         const playaContainer = document.getElementById('beach-teams-container');
-        const beachFilterContainer = document.getElementById('beach-team-filters');
+        const playaFilterContainer = document.getElementById('beach-team-filters');
 
-        // Lógica para equipos de Pista (actualmente sin datos)
-        if (pistaContainer) {
-            const pistaFilterContainer = document.getElementById('team-filters');
-            pistaFilterContainer.innerHTML = '<p>No hay filtros de pista disponibles actualmente.</p>';
-            pistaContainer.innerHTML = '<h3>Contenido de equipos de pista próximamente...</h3>';
+        // Since the data doesn't distinguish between Pista and Playa,
+        // we will render all teams in both sections for now.
+        // A future improvement would be to add a 'type' field to the JSON data.
+
+        let allTeamsHtml = '';
+        const categories = new Set();
+
+        teamsData.forEach(team => {
+            // Add category to our set for the filters
+            categories.add(JSON.stringify({
+                slug: team.category_slug,
+                name: team.category_name
+            }));
+
+            // Create HTML for each team
+            const playersHtml = team.players.map(player => createPlayerCard(player)).join('');
+            const coachesHtml = team.coaches.map(coach => `<li>${coach.name} (${coach.role})</li>`).join('');
+
+            allTeamsHtml += `
+                <div class="team-entry" data-category="${team.category_slug}">
+                    <h3 class="team-name">${team.team_name}</h3>
+                    <div class="player-grid">
+                        ${playersHtml}
+                    </div>
+                    ${coachesHtml ? `<h4>Cuerpo Técnico</h4><ul>${coachesHtml}</ul>` : ''}
+                </div>
+            `;
+        });
+
+        // Generate filter buttons dynamically
+        let filterHtml = '<button class="tab-button active" data-category="all">Todos</button>';
+        const parsedCategories = Array.from(categories).map(cat => JSON.parse(cat));
+        parsedCategories.sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+
+        parsedCategories.forEach(category => {
+            filterHtml += `<button class="tab-button" data-category="${category.slug}">${category.name}</button>`;
+        });
+
+
+        // Render Pista teams
+        if (pistaContainer && pistaFilterContainer) {
+            pistaFilterContainer.innerHTML = filterHtml;
+            pistaContainer.innerHTML = allTeamsHtml;
+            setupTeamFiltering('team-filters', 'teams-container');
+            const newPistaGrids = pistaContainer.querySelectorAll('.player-grid');
+            newPistaGrids.forEach(grid => observer.observe(grid));
         }
 
-        // Lógica para equipos de Playa
-        if (playaContainer && beachFilterContainer) {
-            let beachTeamsHtml = '';
-            const categories = new Set();
-
-            teamsData.forEach(team => {
-                // Añadir categoría a nuestro set para los filtros
-                categories.add(JSON.stringify({
-                    slug: team.category_slug,
-                    name: team.category_name
-                }));
-
-                // Crear HTML para cada equipo
-                const playersHtml = team.players.map(player => createPlayerCard(player, team.team_name)).join('');
-                const coachesHtml = team.coaches.map(coach => `<li>${coach.name} (${coach.role})</li>`).join('');
-
-                beachTeamsHtml += `
-                    <div class="team-entry" data-category="${team.category_slug}">
-                        <h3 class="team-name">${team.team_name}</h3>
-                        <div class="player-grid">
-                            ${playersHtml}
-                        </div>
-                        ${coachesHtml ? `<h4>Cuerpo Técnico</h4><ul>${coachesHtml}</ul>` : ''}
-                    </div>
-                `;
-            });
-
-            // Generar botones de filtro dinámicamente
-            let filterHtml = '<button class="tab-button active" data-category="all">Todos</button>';
-            const parsedCategories = Array.from(categories).map(cat => JSON.parse(cat));
-            parsedCategories.sort((a, b) => a.name.localeCompare(b.name)); // Ordenar alfabéticamente
-
-            parsedCategories.forEach(category => {
-                filterHtml += `<button class="tab-button" data-category="${category.slug}">${category.name}</button>`;
-            });
-
-            beachFilterContainer.innerHTML = filterHtml;
-            playaContainer.innerHTML = beachTeamsHtml;
-
-            // Re-inicializar el filtrado y las animaciones para el contenido dinámico
+        // Render Playa teams
+        if (playaContainer && playaFilterContainer) {
+            playaFilterContainer.innerHTML = filterHtml;
+            playaContainer.innerHTML = allTeamsHtml;
             setupTeamFiltering('beach-team-filters', 'beach-teams-container');
-            const newGrids = playaContainer.querySelectorAll('.player-grid');
-            newGrids.forEach(grid => observer.observe(grid));
+            const newPlayaGrids = playaContainer.querySelectorAll('.player-grid');
+            newPlayaGrids.forEach(grid => observer.observe(grid));
         }
     }
 
