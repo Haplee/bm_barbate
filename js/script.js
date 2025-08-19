@@ -277,9 +277,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function createPlayerCard(player) {
         // Sanitizar el nombre para evitar problemas de XSS.
         const playerName = player.name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const playerImage = player.image ? player.image : 'https://via.placeholder.com/150';
         return `
             <div class="player-card">
-                <img src="https://via.placeholder.com/150" alt="Foto de ${playerName}" loading="lazy">
+                <img src="${playerImage}" alt="Foto de ${playerName}" loading="lazy">
                 <h4>${playerName}</h4>
             </div>
         `;
