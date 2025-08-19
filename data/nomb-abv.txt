@@ -1,0 +1,15 @@
+aaron medina barrera = amb
+adrian guzman ambite = aga
+alejandro guerrero varo = agv
+brian hernandez malia = bhm
+francisco vidal mateo = fvm
+francisco javier guerrero suarez = fjgs
+francisco manuel cla martinez = fmcm
+gonzalo verdugo martinez = gvm
+jesus cabello malia = jcm
+juan jose canales cifuentes = jjcc
+miguel mariscal perez = mmp
+oscar perez sequera = ops
+ricardo crespo gallardo = rcg
+samuel varo ambite = sva
+tomas jesus ramirez tirado = tjrt
