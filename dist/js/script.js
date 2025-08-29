@@ -161,9 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Si estamos en la página de equipos, gestionar la vista.
+    // Si estamos en la página de equipos, gestionar la vista Y LUEGO renderizar el contenido
     if (document.getElementById('pista-view') || document.getElementById('playa-view')) {
         handleTeamView();
+        // La renderización de equipos se llama DESPUÉS de que la vista se haya establecido
+        renderTeams();
     }
 
     /**
@@ -248,9 +250,148 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // NOTE: The dynamic data loading has been removed.
-    // The data is now pre-rendered into the HTML by the build script.
-    // The filtering and animation logic below still works with the pre-rendered content.
+    /**
+     * ------------------------------------------------
+     * 9. CARGA DINÁMICA DE DATOS
+     * ------------------------------------------------
+     * Carga los datos de los equipos y del personal desde archivos JSON.
+     */
+
+    // Función genérica para obtener datos JSON
+    async function fetchData(url) {
+        try {
+            // Añadir un parámetro de cache-busting a la URL
+            const cacheBustingUrl = `${url}?v=${new Date().getTime()}`;
+            const response = await fetch(cacheBustingUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error(`Could not fetch data from ${url}:`, error);
+            return null;
+        }
+    }
+
+    // Función para crear una tarjeta de jugador
+    function createPlayerCard(player) {
+        // Sanitizar el nombre para evitar problemas de XSS.
+        const playerName = player.name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const playerImage = player.image ? player.image : 'https://via.placeholder.com/150';
+        return `
+            <div class="player-card">
+                <img src="${playerImage}" alt="Foto de ${playerName}" loading="lazy">
+                <h4>${playerName}</h4>
+            </div>
+        `;
+    }
+
+    // Función para crear una tarjeta de miembro del staff
+    function createStaffCard(staffName, staffData) {
+        const sanitizedStaffName = staffName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const rolesList = staffData.roles.map(role => `<li>${role.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</li>`).join('');
+        return `
+            <div class="staff-card">
+                <img src="https://via.placeholder.com/150" alt="Foto de ${sanitizedStaffName}" loading="lazy">
+                <h4>${sanitizedStaffName}</h4>
+                <div class="staff-hover-info">
+                    <h5>Equipos y Roles</h5>
+                    <ul>${rolesList}</ul>
+                </div>
+            </div>
+        `;
+    }
+
+    // Función para renderizar los equipos y los filtros dinámicamente
+    async function renderTeams() {
+        const teamsData = await fetchData('data/teams.json');
+        if (!teamsData) return;
+
+        const pistaContainer = document.getElementById('teams-container');
+        const pistaFilterContainer = document.getElementById('team-filters');
+        const playaContainer = document.getElementById('beach-teams-container');
+        const playaFilterContainer = document.getElementById('beach-team-filters');
+
+        // Since the data doesn't distinguish between Pista and Playa,
+        // we will render all teams in both sections for now.
+        // A future improvement would be to add a 'type' field to the JSON data.
+
+        let allTeamsHtml = '';
+        const categories = new Set();
+
+        teamsData.forEach(team => {
+            // Add category to our set for the filters
+            categories.add(JSON.stringify({
+                slug: team.category_slug,
+                name: team.category_name
+            }));
+
+            // Create HTML for each team
+            const playersHtml = team.players.map(player => createPlayerCard(player)).join('');
+            const coachesHtml = team.coaches.map(coach => `<li>${coach.name} (${coach.role})</li>`).join('');
+
+            allTeamsHtml += `
+                <div class="team-entry" data-category="${team.category_slug}">
+                    <h3 class="team-name">${team.team_name}</h3>
+                    <div class="player-grid">
+                        ${playersHtml}
+                    </div>
+                    ${coachesHtml ? `<h4>Cuerpo Técnico</h4><ul>${coachesHtml}</ul>` : ''}
+                </div>
+            `;
+        });
+
+        // Generate filter buttons dynamically
+        let filterHtml = '<button class="tab-button active" data-category="all">Todos</button>';
+        const parsedCategories = Array.from(categories).map(cat => JSON.parse(cat));
+        parsedCategories.sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+
+        parsedCategories.forEach(category => {
+            filterHtml += `<button class="tab-button" data-category="${category.slug}">${category.name}</button>`;
+        });
+
+
+        // Render Pista teams
+        if (pistaContainer && pistaFilterContainer) {
+            pistaFilterContainer.innerHTML = filterHtml;
+            pistaContainer.innerHTML = allTeamsHtml;
+            setupTeamFiltering('team-filters', 'teams-container');
+            const newPistaGrids = pistaContainer.querySelectorAll('.player-grid');
+            newPistaGrids.forEach(grid => observer.observe(grid));
+        }
+
+        // Render Playa teams
+        if (playaContainer && playaFilterContainer) {
+            playaFilterContainer.innerHTML = filterHtml;
+            playaContainer.innerHTML = allTeamsHtml;
+            setupTeamFiltering('beach-team-filters', 'beach-teams-container');
+            const newPlayaGrids = playaContainer.querySelectorAll('.player-grid');
+            newPlayaGrids.forEach(grid => observer.observe(grid));
+        }
+    }
+
+    // Función para renderizar el cuerpo técnico
+    async function renderStaff() {
+        const staffData = await fetchData('data/staff.json');
+        if (!staffData) return;
+
+        const staffContainer = document.querySelector('#beach-staff-section .staff-grid');
+        if (staffContainer) {
+            let staffHtml = '';
+            for (const staffName in staffData) {
+                staffHtml += createStaffCard(staffName, staffData[staffName]);
+            }
+            staffContainer.innerHTML = staffHtml;
+            // Re-inicializar las animaciones para el contenido dinámico
+            observer.observe(staffContainer);
+        }
+    }
+
+    // Cargar datos según la página actual
+    // La llamada a renderTeams() ha sido movida para que se ejecute después de handleTeamView()
+    if (document.getElementById('staff-list')) {
+        renderStaff();
+    }
 
     /**
      * ------------------------------------------------

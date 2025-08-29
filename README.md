@@ -1,77 +1,86 @@
 # ⚽ Sitio Web del Club Deportivo Balonmano Barbate
 
-¡Bienvenido al repositorio del código fuente del sitio web estático para el Club Deportivo Balonmano Barbate! Este proyecto ha sido generado para proporcionar una presencia online moderna, limpia y fácil de gestionar.
+¡Bienvenido al repositorio del código fuente del sitio web del Club Deportivo Balonmano Barbate! Este proyecto ha sido re-estructurado para usar un sistema de **compilación estática (static build)**, lo que mejora el rendimiento, el SEO y facilita el despliegue en plataformas modernas como Vercel.
 
 ## 🚀 Sobre el Proyecto
 
-Este sitio web está construido con tecnologías web fundamentales (HTML, CSS y JavaScript) para asegurar un rendimiento rápido, compatibilidad universal y un mantenimiento sencillo. El diseño es completamente responsive, adaptándose a cualquier tamaño de pantalla, desde móviles hasta ordenadores de escritorio.
+Este sitio web está construido con tecnologías web fundamentales (HTML, CSS y JavaScript), pero con un giro moderno. En lugar de depender de JavaScript del lado del cliente para cargar datos importantes, el contenido de los equipos se **pre-renderiza** durante un proceso de compilación.
+
+Esto significa que el HTML final ya incluye toda la información, resultando en tiempos de carga más rápidos y un sitio web mucho más amigable para los motores de búsqueda.
 
 ### ✨ Características Principales
 
-- **Diseño Moderno:** Una interfaz limpia y atractiva basada en la identidad del club.
-- **Responsive:** Perfecta visualización en todos los dispositivos.
-- **Componentes Interactivos:** Menú de navegación móvil, cabecera que reacciona al scroll y secciones interactivas.
-- **Fácil de Editar:** El contenido principal (noticias, jugadores, galerías) se puede editar directamente en los archivos HTML.
-- **Optimizado:** Carga diferida de imágenes (`loading="lazy"`) para un mejor rendimiento.
+- **Compilado Estáticamente:** El contenido dinámico (equipos) se inyecta en el HTML antes del despliegue.
+- **Rendimiento Optimizado:** Al servir HTML pre-generado, se reduce la carga en el navegador del cliente y se mejora la velocidad de carga.
+- **SEO Mejorado:** Los motores de búsqueda pueden indexar el contenido de los equipos de manera eficiente.
+- **Gestión de Datos Centralizada:** La información de los equipos se gestiona en un único archivo (`data/teams.json`), facilitando las actualizaciones.
+- **Despliegue Automatizado:** Configurado para un despliegue sin esfuerzo en [Vercel](https://vercel.com).
+- **Diseño Moderno y Responsive:** La interfaz se adapta a cualquier dispositivo, desde móviles hasta ordenadores de escritorio.
 
 ---
 
-## 🔧 ¿Cómo Editar el Contenido?
+## 🛠️ Flujo de Trabajo y Edición de Contenido
 
-La principal ventaja de este sitio estático es que no necesitas bases de datos ni lenguajes de servidor complejos. Puedes editar el contenido directamente en los archivos `.html`.
+El proceso para actualizar el sitio ha cambiado. Ya **NO** se deben editar los archivos `.html` directamente para el contenido de los equipos.
 
-### 📰 Actualizar las Noticias
+### 👥 Actualizar Jugadores o Equipos
 
-1.  Abre el archivo `noticias.html`.
-2.  Busca la sección `<div class="news-grid instagram-style">`.
-3.  Dentro, verás varios bloques `<article class="news-card">`. Cada uno es una noticia.
-4.  Para añadir una nueva, simplemente **copia y pega** uno de esos bloques.
-5.  **Para editar:**
-    -   Cambia la imagen en la línea: `<img src="URL_DE_TU_IMAGEN" ... >`
-    -   Actualiza la fecha en: `<span class="card-date">...</span>`
-    -   Escribe el texto de la noticia en: `<p class="card-excerpt">...</p>`
+Toda la información de los equipos se encuentra en `data/teams.json`.
 
-### 📸 Añadir Fotos a la Galería
+1.  **Abre el archivo `data/teams.json`**.
+2.  Este archivo contiene una lista de todos los equipos. Cada equipo tiene un nombre, categoría, una lista de jugadores (`players`) y una lista de entrenadores (`coaches`).
+3.  **Para editar, añadir o eliminar** un jugador o entrenador, simplemente modifica la lista correspondiente dentro del equipo que desees cambiar.
+4.  **Para añadir un nuevo equipo**, copia un bloque de equipo existente y modifica sus datos. Asegúrate de mantener la estructura JSON correcta.
 
-1.  Abre el archivo `galerias.html`.
-2.  Busca la sección `<div class="shop-grid">`.
-3.  Dentro, verás varios bloques `<div class="product-card">`. Cada uno es una foto.
-4.  Para añadir una nueva, **copia y pega** uno de esos bloques.
-5.  **Para editar:**
-    -   Cambia la imagen en la línea: `<img src="URL_DE_TU_IMAGEN" ... >`
-    -   Añade una descripción en `alt="..."` para accesibilidad.
+### 📰 Actualizar Noticias y Galerías
 
-### 👥 Actualizar Jugadores de un Equipo
-
-1.  Abre el archivo `equipos.html`.
-2.  Busca la categoría que quieres editar (ej. "Senior Masculino").
-3.  Dentro del `<div class="panel">` de esa categoría, verás una lista de `<div class="player-card">`.
-4.  **Para editar un jugador:**
-    -   Cambia el nombre del jugador en: `<h4>NOMBRE DEL JUGADOR</h4>`
-    -   Añade la foto reemplazando el `src` en: `<img src="URL_FOTO_JUGADOR" ... >`
-5.  Para **añadir o eliminar** jugadores, simplemente copia/pega o elimina un bloque `<div class="player-card">`.
+Las noticias y las galerías todavía se gestionan manualmente en sus respectivos archivos HTML (`noticias.html` y `galerias.html`), ya que su contenido es menos estructurado. Sigue las instrucciones originales para estas secciones si es necesario.
 
 ---
 
-## 🛠️ Estructura de Archivos
+## 💻 Desarrollo Local
+
+Para trabajar en el sitio en tu máquina local, necesitas tener [Node.js](https://nodejs.org/) instalado.
+
+1.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
+2.  **Ejecuta el script de compilación:**
+    ```bash
+    npm run build
+    ```
+3.  Este comando creará una carpeta `dist` con la versión final del sitio web. Para ver el sitio, puedes usar una extensión de servidor local como [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) en VS Code y abrir la carpeta `dist`.
+
+Cualquier cambio que hagas en los archivos fuente (HTML, CSS, JS, o `data/teams.json`) requerirá que ejecutes `npm run build` de nuevo para ver los cambios reflejados en la carpeta `dist`.
+
+---
+
+## 📂 Estructura de Archivos
 
 ```
 /
-├── index.html          # Página de inicio
-├── club.html           # Página sobre el club
-├── equipos.html        # Página de equipos
-├── noticias.html       # Página de noticias
-├── galerias.html       # Página de galerías
-├── contacto.html       # Página de contacto
+├── dist/                 # Carpeta de salida (generada por el build, para despliegue)
+│
+├── data/
+│   ├── teams.json        # ¡IMPORTANTE! Fuente de datos para los equipos
+│   └── staff.json        # Fuente de datos para el personal
+│
+├── scripts/
+│   └── update_teams.py   # (OBSOLETO) Script para obtener datos (actualmente desactivado)
+│
+├── build.mjs             # Script de compilación que genera la carpeta 'dist'
+├── vercel.json           # Configuración de despliegue para Vercel
+├── package.json          # Dependencias y scripts de Node.js
+│
+├── index.html            # Páginas HTML base (plantillas)
+├── equipos.html
+├── ... (otras páginas)
 │
 ├── css/
-│   └── styles.css      # Hoja de estilos principal
-│
-├── js/
-│   └── script.js       # Archivo de interactividad
-│
-└── assets/
-    └── images/         # Carpeta para guardar imágenes (favicon, etc.)
+│   └── new_styles.css
+└── js/
+    └── script.js
 ```
 
-¡Gracias por confiar en este proyecto! Si tienes alguna duda, el código está comentado para facilitar su comprensión.
+Gracias por confiar en este proyecto. ¡Esta nueva estructura lo hace más robusto y preparado para el futuro!
