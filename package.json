@@ -1,0 +1,12 @@
+{
+  "name": "balonmano-barbate-website",
+  "version": "1.0.0",
+  "description": "Sitio web para el Club Deportivo Balonmano Barbate",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}
