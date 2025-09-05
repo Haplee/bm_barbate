@@ -764,6 +764,31 @@ body.dark-mode #theme-toggle-btn .moon-icon {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* Mobile Dropdown Fix */
+    .dropdown .dropdown-menu {
+        position: static;
+        width: 100%;
+        min-width: unset;
+        transform: none;
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 0;
+        padding: 0;
+        animation: none;
+    }
+
+    .dropdown .dropdown-menu a {
+        padding: 0.75rem 1.5rem;
+        padding-left: 15%; /* Indent submenu items */
+    }
+
+    body.dark-mode .dropdown .dropdown-menu {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+
     #hero {
         padding: 4rem 5%; /* Reducir padding en móvil */
         text-align: center; /* Centrar texto en móvil */
